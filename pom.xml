@@ -44,7 +44,7 @@
         <version>8.0.28</version>
     </dependency>
 
-    <!-- 4. Vistas: JSTL y API de Servlets (para que Eclipse no dé error en los .jsp) -->
+    <!-- 4. Vistas: JSTL y API de Servlets  -->
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>jstl</artifactId>
