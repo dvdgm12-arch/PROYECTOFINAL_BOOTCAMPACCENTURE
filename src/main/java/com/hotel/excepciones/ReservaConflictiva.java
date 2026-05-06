@@ -1,12 +1,12 @@
 package com.hotel.excepciones;
 
-public class AccesoDenegado extends RuntimeException {
+public class ReservaConflictiva extends RuntimeException {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AccesoDenegado(String mensaje) {
+	public ReservaConflictiva(String mensaje) {
         super(mensaje);
     }
 }

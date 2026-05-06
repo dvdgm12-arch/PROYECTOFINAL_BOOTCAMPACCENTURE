@@ -1,9 +1,12 @@
 package com.hotel.excepciones;
 
-public class EntidadNoEncontrada {
+public class EntidadNoEncontrada extends RuntimeException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	public EntidadNoEncontrada() {
-		// TODO Auto-generated constructor stub
-	}
-
+	public EntidadNoEncontrada(String mensaje) {
+        super(mensaje);
+    }
 }

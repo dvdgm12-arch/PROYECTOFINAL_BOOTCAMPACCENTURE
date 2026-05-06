@@ -1,9 +1,12 @@
 package com.hotel.excepciones;
 
-public class OperacionNoPermitida {
+public class OperacionNoPermitida extends RuntimeException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	public OperacionNoPermitida() {
-		// TODO Auto-generated constructor stub
-	}
-
+	public OperacionNoPermitida(String mensaje) {
+        super(mensaje);
+    }
 }
