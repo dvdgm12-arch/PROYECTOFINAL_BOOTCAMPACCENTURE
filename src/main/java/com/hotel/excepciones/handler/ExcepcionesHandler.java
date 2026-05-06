@@ -8,6 +8,7 @@ import com.hotel.excepciones.OperacionNoPermitida;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 @ControllerAdvice
 public class ExcepcionesHandler {
@@ -41,6 +42,11 @@ public class ExcepcionesHandler {
     public String manejarErrorGenerico(Exception ex, Model model) {
         model.addAttribute("errorTitle", "Error Inesperado");
         model.addAttribute("mensaje", "Ha ocurrido un error en el sistema. Inténtelo más tarde.");
+        return "error";
+    }
+    // CONFIG VISTA error.JSP ANTE 404
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public String manejar404() {
         return "error";
     }
 }

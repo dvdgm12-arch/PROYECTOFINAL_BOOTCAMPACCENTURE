@@ -2,6 +2,7 @@
 
 package com.hotel.config;
 
+import javax.servlet.ServletRegistration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -22,5 +23,11 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     // GESTION DEL SERVIDOR POR SPRING
     protected String[] getServletMappings() {
         return new String[] { "/" }; 
+    }
+    
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        //GESTION DE LA VISTA error.jsp
+        registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
     }
 }
