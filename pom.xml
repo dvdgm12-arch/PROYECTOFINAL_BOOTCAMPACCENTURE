@@ -21,7 +21,7 @@
     <!-- 1. Web y MVC (Para controladores y JSPs) -->
     <dependency>
         <groupId>org.springframework</groupId>
-        <artifactId>spring-webmvc</artifactId>
+        <artifactId>spring-webmvc</artifactId> 
         <version>${org.springframework-version}</version>
     </dependency>
 
