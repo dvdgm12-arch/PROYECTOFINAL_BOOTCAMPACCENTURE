@@ -25,11 +25,11 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <!-- 4. Registro de Entidades -->
-        <mapping class="com.hotel.model.Usuario" />
+      <!--  <mapping class="com.hotel.model.Usuario" />
         <mapping class="com.hotel.model.Huesped" />
         <mapping class="com.hotel.model.Habitacion"/>
         <mapping class="com.hotel.model.Incidencia"/>
-        <mapping class="com.hotel.model.Reserva"/>
+        <mapping class="com.hotel.model.Reserva"/> -->
         
     </session-factory>
 </hibernate-configuration>
