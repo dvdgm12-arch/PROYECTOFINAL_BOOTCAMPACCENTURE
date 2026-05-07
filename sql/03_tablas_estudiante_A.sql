@@ -44,7 +44,36 @@ INSERT INTO `habitaciones` (`numero_habitacion`, `tipo`, `precio_noche`, `estado
 (302, 'suite', 120.00, 'ocupada', 3),
 (303, 'suite', 150.00, 'disponible', 3);
 
+-- -----------------------------------------------------
+-- Table `hoteldb`.`incidencias`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hoteldb`.`incidencias` (
+  `id_incidencia` INT NOT NULL AUTO_INCREMENT,
+  `id_habitacion` INT NOT NULL,
+  `descripcion` TEXT NULL,
+  `estado` ENUM('abierta', 'en curso', 'cerrada') NULL,
+  `prioridad` ENUM('baja', 'media', 'alta') NULL,
+  `fecha_apertura` DATETIME NULL,
+  `fecha_cierre` DATETIME NULL,
+  `coste_reparacion` DECIMAL(10,2) NULL,
+  PRIMARY KEY (`id_incidencia`),
+  INDEX `fk_incidencias_habitaciones_idx` (`id_habitacion` ASC) VISIBLE,
+  CONSTRAINT `fk_incidencias_habitaciones`
+    FOREIGN KEY (`id_habitacion`)
+    REFERENCES `hoteldb`.`habitaciones` (`id_habitacion`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
+-- 5. INCIDENCIAS (Mínimo 5 de distintos estados y prioridades)
+INSERT INTO `incidencias` (`id_habitacion`, `descripcion`, `estado`, `prioridad`, `fecha_apertura`, `coste_reparacion`) VALUES 
+(1, 'Grifo del baño gotea ligeramente', 'abierta', 'baja', NOW(), 0.00),
+(3, 'Bombilla fundida en la entrada', 'cerrada', 'baja', '2026-04-28 10:00:00', 5.50),
+(2, 'Aire acondicionado hace ruido excesivo', 'en curso', 'media', NOW(), 0.00),
+(6, 'Televisión no sintoniza canales', 'abierta', 'baja', NOW(), 0.00),
+(5, 'Cristal de ventana agrietado', 'en curso', 'alta', NOW(), 150.00);
 
 -- RESTAURACIÓN DE CONFIGURACIONES ORIGINALES
 SET SQL_MODE=@OLD_SQL_MODE;
