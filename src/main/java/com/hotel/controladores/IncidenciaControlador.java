@@ -30,6 +30,14 @@ public class IncidenciaControlador {
     public String listarIncidencias(Model modelo) {
         List<Incidencia> lista = incidenciaServicio.obtenerTodas();
         modelo.addAttribute("listaIncidencias", lista);
+        
+      //PROBAR SIN ESTAR LOGEADOS
+     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        usuarioFalso.put("nombre", "Liante de Pruebas");
+        usuarioFalso.put("rol", "recepcionista");
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
+     // A respetar en el login // Ejemplo de lo que deberás tener en el login: session.setAttribute("usuarioSesion", usuarioEncontrado);
+        
         return "Incidencias";
     }
 
@@ -38,6 +46,11 @@ public class IncidenciaControlador {
     public String verDetalle(@PathVariable("id") int id, Model modelo) {
         Incidencia inc = incidenciaServicio.obtenerPorId(id);
         modelo.addAttribute("incidencia", inc);
+        
+     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        usuarioFalso.put("rol", "recepcionista");
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
+        
         return "DetalleIncidencia";
     }
 
@@ -45,13 +58,19 @@ public class IncidenciaControlador {
     @GetMapping("/nuevo")
     public String mostrarFormularioAlta(Model modelo) {
         Incidencia nuevaInc = new Incidencia();
+        
         nuevaInc.setId(0);
         
         // LLAMAMOS AL SERVICIO DE HABITACIONES PORQUE INCIDENCIA VA ASOCIADA A UNA HABITACION
+        nuevaInc.setHabitacion(new Habitacion());
         List<Habitacion> habitaciones = habitacionServicio.obtenerTodas();
         
         modelo.addAttribute("incidencia", nuevaInc);
         modelo.addAttribute("listaHabitaciones", habitaciones);
+        
+     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        usuarioFalso.put("rol", "recepcionista");
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
         
         return "FormularioIncidencia";
     }
@@ -60,10 +79,19 @@ public class IncidenciaControlador {
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") int id, Model modelo) {
         Incidencia incExistente = incidenciaServicio.obtenerPorId(id);
+        
+		if (incExistente.getHabitacion() == null) {
+			incExistente.setHabitacion(new Habitacion());
+		}
+        
         List<Habitacion> habitaciones = habitacionServicio.obtenerTodas();
         
         modelo.addAttribute("incidencia", incExistente);
         modelo.addAttribute("listaHabitaciones", habitaciones);
+        
+     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        usuarioFalso.put("rol", "recepcionista");
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
         
         return "FormularioIncidencia";
     }

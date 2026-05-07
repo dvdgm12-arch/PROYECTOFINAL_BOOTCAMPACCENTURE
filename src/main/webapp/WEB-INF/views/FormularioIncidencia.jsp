@@ -28,13 +28,15 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Seleccionar Habitación</label>
-                                <form:select path="habitacion.id" class="form-select" required="true">
-                                    <form:option value="" label="-- Elegir habitación --" />
-                                    <c:forEach var="hab" items="${listaHabitaciones}">
-                                        <form:option value="${hab.id}" label="Hab. ${hab.numero} - ${hab.tipo}" />
-                                    </c:forEach>
-                                </form:select>
-                            </div>
+								<form:select path="habitacion.id" class="form-select"
+									required="true">
+									<form:option value="0" label="-- Elegir habitación --" />
+									<c:forEach var="hab" items="${listaHabitaciones}">
+										<form:option value="${hab.id}"
+											label="Hab. ${hab.numero} - ${hab.tipo}" />
+									</c:forEach>
+								</form:select>
+							</div>
 
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Descripción</label>

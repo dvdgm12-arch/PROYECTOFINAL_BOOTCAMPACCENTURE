@@ -20,7 +20,7 @@ public class Incidencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_incidencia")
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_habitacion")
@@ -65,7 +65,7 @@ public class Incidencia {
     }
 
     // GETTERS Y SETTERS
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
