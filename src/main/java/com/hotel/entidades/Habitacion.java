@@ -15,7 +15,7 @@ public class Habitacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_habitacion")
-    private int id;
+    private Integer id;
 
     @Column(name = "numero_habitacion", unique = true)
     private int numero;
@@ -50,7 +50,7 @@ public class Habitacion {
    
     
     // GETTERS Y SETTERS
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
