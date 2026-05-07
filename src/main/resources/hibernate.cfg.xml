@@ -26,10 +26,10 @@
 
         <!-- 4. Registro de Entidades -->
       <!--  <mapping class="com.hotel.entidades.Usuario" />
-			<mapping class="com.hotel.entidades.Huesped" />
+			<mapping class="com.hotel.entidades.Huesped" /> -->
 			<mapping class="com.hotel.entidades.Habitacion"/>
 			<mapping class="com.hotel.entidades.Incidencia"/>
-			<mapping class="com.hotel.entidades.Reserva"/> -->
+	  <!--	<mapping class="com.hotel.entidades.Reserva"/> -->
         
     </session-factory>
 </hibernate-configuration>
