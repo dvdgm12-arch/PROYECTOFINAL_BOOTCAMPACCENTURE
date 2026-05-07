@@ -26,6 +26,12 @@ public class HabitacionControlador {
     public String listarHabitaciones(Model modelo) {
         List<Habitacion> lista = habitacionServicio.obtenerTodas();
         modelo.addAttribute("listaHabitaciones", lista);
+        //PROBAR SIN ESTAR LOGEADOS
+        /*java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        usuarioFalso.put("nombre", "Liante de Pruebas");
+        usuarioFalso.put("rol", "recepcionista");
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
+     // A respetar en el login // Ejemplo de lo que deberás tener en el login: session.setAttribute("usuarioSesion", usuarioEncontrado);  
         return "Habitaciones"; 
     }
 
@@ -69,4 +75,4 @@ public class HabitacionControlador {
     }
 }
 
-// A respetar en el login // Ejemplo de lo que deberás tener en el login: session.setAttribute("usuarioSesion", usuarioEncontrado);
+
