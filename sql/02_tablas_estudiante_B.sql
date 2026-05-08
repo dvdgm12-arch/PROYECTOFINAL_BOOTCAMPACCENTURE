@@ -19,6 +19,33 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTI
 -- -----------------------------------------------------
 
 
+-- -----------------------------------------------------
+-- Table `hoteldb`.`huespedes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hoteldb`.`huespedes` (
+  `id_huesped` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(20) NULL,
+  `apellidos` VARCHAR(20) NULL,
+  `dni_pasaporte` VARCHAR(10) NULL,
+  `email` VARCHAR(60) NULL,
+  `telefono` VARCHAR(20) NULL,
+  PRIMARY KEY (`id_huesped`),
+  UNIQUE INDEX `dni_pasaporte_UNIQUE` (`dni_pasaporte` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `telefono_UNIQUE` (`telefono` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 3. HUESPEDES (Mínimo 5)
+INSERT INTO `huespedes` (`nombre`, `apellidos`, `dni_pasaporte`, `email`, `telefono`) VALUES
+('Carlos', 'Ruiz Zafón', '12345678A', 'carlos@email.com', '600111222'),
+('Laura', 'Sánchez Poo', '87654321B', 'laura@email.com', '600333444'),
+('Marta', 'Gómez Fer', '11223344C', 'marta@email.com', '600555666'),
+('Roberto', 'Leal Cano', '44332211D', 'roberto@email.com', '600777888'),
+('Elena', 'Jucar Vázquez', '55667788E', 'elena@email.com', '600999000');
+
+
 
 
 -- RESTAURACIÓN DE CONFIGURACIONES ORIGINALES
