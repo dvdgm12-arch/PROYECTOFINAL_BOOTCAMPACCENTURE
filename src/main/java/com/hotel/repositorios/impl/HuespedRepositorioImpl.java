@@ -22,7 +22,7 @@ public class HuespedRepositorioImpl implements HuespedRepositorio {
     }
 
     @Override
-    public Huesped obtenerPorId(int id) {
+    public Huesped obtenerPorId(Integer id) {
         Session miSesion = sessionFactory.getCurrentSession();
         return miSesion.get(Huesped.class, id);
     }
@@ -35,7 +35,7 @@ public class HuespedRepositorioImpl implements HuespedRepositorio {
     }
 
     @Override
-    public void eliminar(int id) {
+    public void eliminar(Integer id) {
         Session miSesion = sessionFactory.getCurrentSession();
         Huesped hus = miSesion.get(Huesped.class, id);
         if (hus != null) {

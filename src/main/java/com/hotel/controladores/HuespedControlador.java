@@ -29,23 +29,23 @@ public class HuespedControlador {
         modelo.addAttribute("listaHuespedes", lista);
         
         
-    /*  java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("nombre", "Liante de Pruebas");
         usuarioFalso.put("rol", "recepcionista"); 
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
+        modelo.addAttribute("usuarioSesion", usuarioFalso); 
         
         return "Huespedes";
     }
     
     // DETALLE DEL HUÉSPED
     @GetMapping("/detalle/{id}")
-    public String verDetalle(@PathVariable("id") int id, Model modelo) {
+    public String verDetalle(@PathVariable("id") Integer id, Model modelo) {
         Huesped h = huespedServicio.obtenerPorId(id);
         modelo.addAttribute("huesped", h);
         
-    /*  java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
+        modelo.addAttribute("usuarioSesion", usuarioFalso); 
         
         return "DetalleHuesped";
     }
@@ -58,22 +58,22 @@ public class HuespedControlador {
         
         modelo.addAttribute("huesped", nuevoHuesped);
         
-    /*  java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
+        modelo.addAttribute("usuarioSesion", usuarioFalso); 
         
         return "Formulariohuesped";
     }
     
     // FORMULARIO (EDICIÓN)
     @GetMapping("/editar/{id}")
-    public String mostrarFormularioEdicion(@PathVariable("id") int id, Model modelo) {
+    public String mostrarFormularioEdicion(@PathVariable("id") Integer id, Model modelo) {
         Huesped hExistente = huespedServicio.obtenerPorId(id);
         modelo.addAttribute("huesped", hExistente);
         
-    /*  java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
+        modelo.addAttribute("usuarioSesion", usuarioFalso); 
         
         return "Formulariohuesped";
     }
@@ -87,7 +87,7 @@ public class HuespedControlador {
 
     // ELIMINAR
     @GetMapping("/eliminar/{id}")
-    public String eliminarHuesped(@PathVariable("id") int id) {
+    public String eliminarHuesped(@PathVariable("id") Integer id) {
         huespedServicio.eliminar(id);
         return "redirect:/huespedes";
     }

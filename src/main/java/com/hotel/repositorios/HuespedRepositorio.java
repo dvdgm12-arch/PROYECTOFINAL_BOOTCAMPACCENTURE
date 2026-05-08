@@ -7,9 +7,9 @@ public interface HuespedRepositorio {
     
     List<Huesped> obtenerTodas();
     
-    Huesped obtenerPorId(int id);
+    Huesped obtenerPorId(Integer id);
     
     void guardar(Huesped huesped);
     
-    void eliminar(int id);
+    void eliminar(Integer id);
 }

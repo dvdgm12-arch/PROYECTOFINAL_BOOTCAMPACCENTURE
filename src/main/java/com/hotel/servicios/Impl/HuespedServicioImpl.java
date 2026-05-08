@@ -27,7 +27,7 @@ package com.hotel.servicios.Impl;
 	    
 	    @Override
 	    @Transactional
-	    public Huesped obtenerPorId(int id) {
+	    public Huesped obtenerPorId(Integer id) {
 	    	return huespedRepositorio.obtenerPorId(id);
 	       
 	    }
@@ -41,7 +41,7 @@ package com.hotel.servicios.Impl;
 
 	    @Override
 	    @Transactional
-	    public void eliminar(int id) {
+	    public void eliminar(Integer id) {
 	    	huespedRepositorio.eliminar(id);
 	      
 	    }
