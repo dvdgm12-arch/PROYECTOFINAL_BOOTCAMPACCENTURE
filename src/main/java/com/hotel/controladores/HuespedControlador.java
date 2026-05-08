@@ -62,7 +62,7 @@ public class HuespedControlador {
         usuarioFalso.put("rol", "recepcionista");
         modelo.addAttribute("usuarioSesion", usuarioFalso); 
         
-        return "Formulariohuesped";
+        return "FormularioHuesped";
     }
     
     // FORMULARIO (EDICIÓN)
@@ -75,7 +75,7 @@ public class HuespedControlador {
         usuarioFalso.put("rol", "recepcionista");
         modelo.addAttribute("usuarioSesion", usuarioFalso); 
         
-        return "Formulariohuesped";
+        return "FormularioHuesped";
     }
     
      // PROCESAR FORMULARIO
