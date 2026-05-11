@@ -27,8 +27,18 @@
             <a class="navbar-brand" href="<c:url value='/' />">Grand Resort Baratié</a>
         </div>
     </nav>
+	<div class="row mb-4">
+		<div class="col-12">
+			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
+				<a href="<c:url value='/login/principal' />"
+					class="btn btn-secondary btn-lg shadow-sm"> <i
+					class="bi bi-house-door-fill me-1"></i> Menú Principal
+				</a> <span class="ms-3 text-muted"></span>
+			</div>
+		</div>
+	</div>
 
-    <div class="container">
+	<div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 mb-0 text-secondary">Listado de Habitaciones</h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
