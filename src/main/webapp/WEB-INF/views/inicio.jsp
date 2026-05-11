@@ -45,7 +45,7 @@
                     <p class="lead mb-5 fs-4">Un oasis de tranquilidad y elegancia en el corazón de la ciudad. Gestionado por el Equipo B.</p>
                     
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a href="#" class="btn btn-outline-light btn-lg px-5 py-3">Área de Gestión</a>
+                        <a href="login" class="btn btn-outline-light btn-lg px-5 py-3">Área de Gestión</a>
                     </div>
                 </div>
             </div>
