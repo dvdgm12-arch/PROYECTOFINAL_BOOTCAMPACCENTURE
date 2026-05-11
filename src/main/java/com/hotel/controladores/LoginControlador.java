@@ -14,12 +14,12 @@ import com.hotel.servicios.UsuarioServicio;
 
 @Controller
 @RequestMapping("/login")
-public class UsuarioControlador {
+public class LoginControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
 
-    // FORMULARIO LOGIN
+    // MOSTRAR FORMULARIO
     @GetMapping
     public String mostrarLogin() {
         return "Login";
@@ -35,7 +35,7 @@ public class UsuarioControlador {
         Usuario usuario = usuarioServicio.validarUsuario(username, password);
         
         if (usuario != null) {
-          
+           
             sesion.setAttribute("usuarioSesion", usuario);
             return "redirect:/login/principal";
         } else {
@@ -60,6 +60,3 @@ public class UsuarioControlador {
         return "redirect:/login";
     }
 }
-
-
-

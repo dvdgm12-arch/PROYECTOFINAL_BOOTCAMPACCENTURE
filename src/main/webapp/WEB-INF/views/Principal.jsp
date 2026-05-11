@@ -41,7 +41,7 @@
             <div class="d-flex align-items-center text-white">
                 <span class="me-3 d-none d-md-inline">
                     Bienvenido, <strong>${usuarioSesion.nombreCompleto}</strong> 
-                    <span class="badge bg-secondary ms-1 text-uppercase">${usuarioSesion.perfil}</span>
+                    <span class="badge bg-secondary ms-1 text-uppercase">${usuarioSesion.rol}</span>
                 </span>
                 <a href="<c:url value='/login/cerrar' />" class="btn btn-outline-danger btn-sm">
                     <i class="bi bi-box-arrow-right"></i> Salir

@@ -30,33 +30,32 @@ public class Usuario {
     @Column(name = "nombre_completo")
     private String nombreCompleto;
 
+    
     @Enumerated(EnumType.STRING)
     @Column(name = "perfil")
-    private PerfilUsuario perfil;
+    private PerfilUsuario rol;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "ultimo_login")
     private Date ultimoLogin;
 
-
     public enum PerfilUsuario {
         recepcionista, supervisor
     }
 
-    // 1. CONSTRUCTOR VACÍO
+    // CONSTRUCTORES
     public Usuario() {
     }
 
-    // 2. CONSTRUCTOR DE PARÁMETROS
-    public Usuario(String username, String password, String nombreCompleto, PerfilUsuario perfil, Date ultimoLogin) {
+    public Usuario(String username, String password, String nombreCompleto, PerfilUsuario rol, Date ultimoLogin) {
         this.username = username;
         this.password = password;
         this.nombreCompleto = nombreCompleto;
-        this.perfil = perfil;
+        this.rol = rol;
         this.ultimoLogin = ultimoLogin;
     }
 
-    // 3. GETTERS Y SETTERS
+    // GETTERS Y SETTERS ACTUALIZADOS
     public Integer getId() {
         return id;
     }
@@ -89,12 +88,13 @@ public class Usuario {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public PerfilUsuario getPerfil() {
-        return perfil;
+    
+    public PerfilUsuario getRol() {
+        return rol;
     }
 
-    public void setPerfil(PerfilUsuario perfil) {
-        this.perfil = perfil;
+    public void setRol(PerfilUsuario rol) {
+        this.rol = rol;
     }
 
     public Date getUltimoLogin() {
@@ -107,7 +107,9 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [username=" + username + ", perfil=" + perfil + "]";
+        return "Usuario [username=" + username + ", rol=" + rol + "]";
     }
 }
+
+
 
