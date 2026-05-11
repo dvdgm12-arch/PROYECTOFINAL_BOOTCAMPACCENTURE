@@ -22,11 +22,11 @@
 
 				Nomenclatura:
 
-				- Lectura/SELECT: listado (Ej: ListadoHabitaciones, ListadoHuespedesByDni, ListadoTodas, ListadoTodos, NoListadoHabitaciones)
+				- Lectura/SELECT: obtener (Ej: obtenerHabitaciones, obtenerHuespedesByDni, obtenerTodas, obtenerTodos, obtenerHabitaciones)
 
-				- Creación/INSERT: alta (Ej: AltaReserva).
+				- Creación/INSERT: guardar (Ej: AltaReserva).
 
-				- Edición/UPDATE: actualizar (Ej: ActualizarIncidencia).
+				- Edición/UPDATE: guardar (Ej: ActualizarIncidencia).
 
 				- Borrado/DELETE: eliminar (Ej: EliminarUsuario).
 
