@@ -25,6 +25,7 @@
             <a class="navbar-brand" href="<c:url value='/' />">Grand Resort Baratié</a>
         </div>
     </nav>
+
     <div class="row mb-4">
 		<div class="col-12">
 			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
@@ -35,7 +36,6 @@
 			</div>
 		</div>
 	</div>
- 
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 mb-0 text-dark"><i class="bi bi-people-fill me-2"></i>Gestión de Huéspedes</h2>
