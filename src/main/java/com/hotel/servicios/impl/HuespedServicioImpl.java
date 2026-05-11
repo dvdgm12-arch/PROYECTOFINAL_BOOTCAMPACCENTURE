@@ -1,4 +1,4 @@
-package com.hotel.servicios.Impl;
+package com.hotel.servicios.impl;
 
 	
 	import java.util.List;

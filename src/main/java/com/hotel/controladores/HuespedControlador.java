@@ -29,10 +29,10 @@ public class HuespedControlador {
         modelo.addAttribute("listaHuespedes", lista);
         
         
-        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        /*java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("nombre", "Liante de Pruebas");
         usuarioFalso.put("rol", "recepcionista"); 
-        modelo.addAttribute("usuarioSesion", usuarioFalso); 
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
         
         return "Huespedes";
     }
@@ -43,9 +43,9 @@ public class HuespedControlador {
         Huesped h = huespedServicio.obtenerPorId(id);
         modelo.addAttribute("huesped", h);
         
-        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        /*java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); 
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
         
         return "DetalleHuesped";
     }
@@ -58,9 +58,9 @@ public class HuespedControlador {
         
         modelo.addAttribute("huesped", nuevoHuesped);
         
-        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+        /*java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); 
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
         
         return "FormularioHuesped";
     }
@@ -71,9 +71,9 @@ public class HuespedControlador {
         Huesped hExistente = huespedServicio.obtenerPorId(id);
         modelo.addAttribute("huesped", hExistente);
         
-        java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
+       /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
         usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); 
+        modelo.addAttribute("usuarioSesion", usuarioFalso); */
         
         return "FormularioHuesped";
     }

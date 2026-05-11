@@ -45,7 +45,27 @@ INSERT INTO `huespedes` (`nombre`, `apellidos`, `dni_pasaporte`, `email`, `telef
 ('Roberto', 'Leal Cano', '44332211D', 'roberto@email.com', '600777888'),
 ('Elena', 'Jucar Vázquez', '55667788E', 'elena@email.com', '600999000');
 
+-- -----------------------------------------------------
+-- Table `hoteldb`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hoteldb`.`usuarios` (
+  `id_usuarios` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(20) NULL,
+  `password` VARCHAR(255) CHARACTER SET 'ascii' NULL,
+  `nombre_completo` VARCHAR(45) NULL,
+  `perfil` ENUM('recepcionista', 'supervisor') NULL,
+  `ultimo_login` DATETIME NULL,
+  PRIMARY KEY (`id_usuarios`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
+-- 1. USUARIOS (Mínimo 2: Recepcionista y Supervisor)
+-- Nota: Las contraseñas se guardan en texto plano por ahora para facilitar las pruebas
+INSERT INTO `usuarios` (`username`, `password`, `nombre_completo`, `perfil`, `ultimo_login`) VALUES 
+('admin_ana', '1234abcd', 'Ana García López', 'supervisor', NOW()),
+('recep_juan', 'juan2026', 'Juan Pérez Martínez', 'recepcionista', NOW());
 
 
 -- RESTAURACIÓN DE CONFIGURACIONES ORIGINALES
