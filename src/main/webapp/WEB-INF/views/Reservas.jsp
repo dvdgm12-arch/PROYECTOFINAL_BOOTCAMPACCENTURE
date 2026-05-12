@@ -14,12 +14,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
 <body class="bg-light">
-    <nav class="navbar navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
-            <a class="navbar-brand" href="<c:url value='/login/principal' />">Grand Resort Baratié</a>
+            <a class="navbar-brand" href="<c:url value='/' />">Grand Resort Baratié</a>
         </div>
     </nav>
-
+    
+    <div class="row mb-4">
+		<div class="col-12">
+			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
+				<a href="<c:url value='/login/principal' />"
+					class="btn btn-secondary btn-lg shadow-sm"> <i
+					class="bi bi-house-door-fill me-1"></i> Menú Principal
+				</a> <span class="ms-3 text-muted"></span>
+			</div>
+		</div>
+	</div>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3"><i class="bi bi-calendar-check me-2"></i>Listado de Reservas</h2>
