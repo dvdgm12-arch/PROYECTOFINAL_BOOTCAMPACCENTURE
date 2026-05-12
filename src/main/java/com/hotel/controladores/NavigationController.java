@@ -39,6 +39,8 @@ public class NavigationController {
         return "SoporteTecnico";
     }
     
+    // MÉTODOS 2
+    
     @GetMapping("/ayuda")
     public String verGuiaUsuario(HttpSession sesion) {
         if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
