@@ -38,4 +38,16 @@ public class NavigationController {
         if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
         return "SoporteTecnico";
     }
+    
+    @GetMapping("/ayuda")
+    public String verGuiaUsuario(HttpSession sesion) {
+        if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
+        return "GuiaUsuario";
+    }
+
+    @GetMapping("/terminos-condiciones")
+    public String verTerminos(HttpSession sesion) {
+        if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
+        return "TerminosLegales";
+    }
 }
