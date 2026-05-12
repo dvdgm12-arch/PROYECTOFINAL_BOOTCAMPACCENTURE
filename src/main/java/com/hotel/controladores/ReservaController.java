@@ -31,7 +31,27 @@ public class ReservaController {
     @Autowired
     private HabitacionServicio habitacionServicio;
     
-// FORMULARIO (ALTA)
+    // LISTADO
+    @GetMapping
+    public String listarReservas(Model modelo, HttpSession sesion) {
+        if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
+        
+        modelo.addAttribute("listaReservas", reservaServicio.obtenerTodos());
+        return "Reservas";
+    }
+    
+    // DETALLE RESERVA
+    @GetMapping("/detalle/{id}")
+    public String verDetalle(@PathVariable("id") Integer id, Model modelo, HttpSession sesion) {
+        if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
+
+        Reserva reserva = reservaServicio.obtenerPorId(id);
+        modelo.addAttribute("reserva", reserva);
+        return "DetalleReserva";
+        
+    }  
+    
+    // FORMULARIO (ALTA)
     @GetMapping("/nuevo")
     public String mostrarFormularioNuevo(Model modelo, HttpSession sesion) {
         Usuario usuarioSesion = (Usuario) sesion.getAttribute("usuarioSesion");
@@ -87,3 +107,7 @@ public class ReservaController {
         return "redirect:/reservas";
     }
 }
+
+
+ 
+
