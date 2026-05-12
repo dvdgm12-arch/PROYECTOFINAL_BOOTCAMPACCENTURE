@@ -31,7 +31,7 @@ public class ReservaController {
     @Autowired
     private HabitacionServicio habitacionServicio;
     
-// LISTADO
+    // LISTADO
     @GetMapping
     public String listarReservas(Model modelo, HttpSession sesion) {
         if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
@@ -40,7 +40,7 @@ public class ReservaController {
         return "Reservas";
     }
     
-// DETALLE RESERVA
+    // DETALLE RESERVA
     @GetMapping("/detalle/{id}")
     public String verDetalle(@PathVariable("id") Integer id, Model modelo, HttpSession sesion) {
         if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
@@ -50,4 +50,64 @@ public class ReservaController {
         return "DetalleReserva";
         
     }  
- }
+    
+    // FORMULARIO (ALTA)
+    @GetMapping("/nuevo")
+    public String mostrarFormularioNuevo(Model modelo, HttpSession sesion) {
+        Usuario usuarioSesion = (Usuario) sesion.getAttribute("usuarioSesion");
+        if (usuarioSesion == null) return "redirect:/login";
+        
+        // CONTROL DE ACCESO
+        if (usuarioSesion.getRol() != PerfilUsuario.recepcionista) {
+            return "redirect:/login/principal?error=acceso-denegado";
+        }
+
+        modelo.addAttribute("reserva", new Reserva());
+        modelo.addAttribute("listaHuespedes", huespedServicio.obtenerTodas());
+        modelo.addAttribute("listaHabitaciones", habitacionServicio.obtenerTodas());
+        return "FormularioReserva";
+    }
+
+    // GUARDAR RESERVA (ALTA Y MODIFICACIÓN)
+    @PostMapping("/guardar")
+    public String guardarReserva(@ModelAttribute("reserva") Reserva reserva, HttpSession sesion) {
+        Usuario usuarioSesion = (Usuario) sesion.getAttribute("usuarioSesion");
+        if (usuarioSesion == null || usuarioSesion.getRol() != PerfilUsuario.recepcionista) {
+            return "redirect:/login/principal?error=acceso-denegado";
+        }
+
+        reservaServicio.guardar(reserva);
+        return "redirect:/reservas";
+    }
+
+    // MODIFICAR RESERVA
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEditar(@PathVariable("id") Integer id, Model modelo, HttpSession sesion) {
+        Usuario usuarioSesion = (Usuario) sesion.getAttribute("usuarioSesion");
+        if (usuarioSesion == null || usuarioSesion.getRol() != PerfilUsuario.recepcionista) {
+            return "redirect:/login/principal?error=acceso-denegado";
+        }
+
+        Reserva reserva = reservaServicio.obtenerPorId(id);
+        modelo.addAttribute("reserva", reserva);
+        modelo.addAttribute("listaHuespedes", huespedServicio.obtenerTodas());
+        modelo.addAttribute("listaHabitaciones", habitacionServicio.obtenerTodas());
+        return "FormularioReserva";
+    }
+    
+    // ELIMINAR RESERVA
+    @GetMapping("/eliminar/{id}")
+    public String eliminarReserva(@PathVariable("id") Integer id, HttpSession sesion) {
+        Usuario usuarioSesion = (Usuario) sesion.getAttribute("usuarioSesion");
+        if (usuarioSesion == null || usuarioSesion.getRol() != PerfilUsuario.recepcionista) {
+            return "redirect:/login/principal?error=acceso-denegado";
+        }
+
+        reservaServicio.eliminar(id);
+        return "redirect:/reservas";
+    }
+}
+
+
+ 
+
