@@ -30,6 +30,16 @@
             margin-bottom: 1rem;
             color: #2c3e50;
         }
+        
+        .nav-card {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            transition: all 0.2s;
+        }
+        .nav-card:hover {
+            background-color: #f8f9fa;
+            border-color: #e67e22;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -92,7 +102,7 @@
             <div class="col-md-6 col-lg-3">
                 <a href="<c:url value='/reservas' />" class="text-decoration-none text-dark">
                     <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box text-muted"><i class="bi bi-calendar-check"></i></div>
+                        <div class="icon-box"><i class="bi bi-calendar-check"></i></div>
                         <h5 class="fw-bold">Reservas</h5>
                         <p class="small text-muted mb-0">Gestión de estancias</p>
                     </div>
@@ -100,11 +110,55 @@
             </div>
         </div>
 
+        <div class="row mt-5 mb-4">
+            <div class="col">
+                <h4 class="fw-bold"><i class="bi bi-gear-wide-connected me-2"></i>Herramientas y Ayuda</h4>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <a href="<c:url value='/dashboard/resumen' />" class="text-decoration-none text-dark">
+                    <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
+                        <i class="bi bi-graph-up-arrow fs-3 me-3 text-primary"></i>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Estadísticas</h6>
+                            <small class="text-muted">Resumen de ocupación</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="<c:url value='/ayuda' />" class="text-decoration-none text-dark">
+                    <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
+                        <i class="bi bi-journal-text fs-3 me-3 text-info"></i>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Guía de Usuario</h6>
+                            <small class="text-muted">Manual del personal</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="<c:url value='/terminos-condiciones' />" class="text-decoration-none text-dark">
+                    <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
+                        <i class="bi bi-shield-check fs-3 me-3 text-success"></i>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Legal</h6>
+                            <small class="text-muted">Términos y condiciones</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
         <div class="row mt-5">
             <div class="col-12">
-                <div class="alert alert-info border-0 shadow-sm">
-                    <i class="bi bi-info-circle-fill me-2"></i>
-                    Su último inicio de sesión fue el: <strong>${usuarioSesion.ultimoLogin}</strong>
+                <div class="alert alert-info border-0 shadow-sm d-flex align-items-center">
+                    <i class="bi bi-info-circle-fill me-3 fs-4"></i>
+                    <div>
+                        Su último inicio de sesión fue el: <strong>${usuarioSesion.ultimoLogin}</strong>
+                    </div>
                 </div>
             </div>
         </div>
