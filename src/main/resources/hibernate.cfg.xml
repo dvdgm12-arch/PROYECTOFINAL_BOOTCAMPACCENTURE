@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 1. Configuración de la conexión -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        
+        <!-- URL Public Key y SSL -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hoteldb?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
+        
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">123abc</property>
+
+        <!-- 2. Propiedades de Hibernate -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.use_sql_comments">true</property>
+
+        <!-- 3. Gestión del esquema -->
+        <property name="hbm2ddl.auto">validate</property>
+
+        <!-- 4. Registro de Entidades -->
+
+			<mapping class="com.hotel.entidades.Usuario" />
+			<mapping class="com.hotel.entidades.Huesped" />
+			<mapping class="com.hotel.entidades.Habitacion"/>
+	  <!--	<mapping class="com.hotel.entidades.Reserva"/> -->
+        
+    </session-factory>
+</hibernate-configuration>
