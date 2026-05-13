@@ -1,5 +1,6 @@
 package com.hotel.entidades;
 
+import java.io.Serializable; // Añadido para la serialización
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +15,10 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario implements Serializable { // Añadido implements Serializable
+
+    // ID de versión para la serialización (Recomendado por Sonar)
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +34,6 @@ public class Usuario {
     @Column(name = "nombre_completo")
     private String nombreCompleto;
 
-    
     @Enumerated(EnumType.STRING)
     @Column(name = "perfil")
     private PerfilUsuario rol;
@@ -88,7 +91,6 @@ public class Usuario {
         this.nombreCompleto = nombreCompleto;
     }
 
-    
     public PerfilUsuario getRol() {
         return rol;
     }
