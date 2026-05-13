@@ -16,7 +16,7 @@
     <div class="container py-5">
         <div class="mb-4">
             <a href="<c:url value='/login/principal' />" class="btn btn-secondary btn-lg shadow-sm">
-                <i class="bi bi-house-door-fill me-2"></i> Menú Principal
+                <span class="bi bi-house-door-fill me-2"><span> Menú Principal
             </a>
         </div>
 
@@ -31,7 +31,7 @@
             <div class="col-md-5">
                 <div class="card border-0 shadow-sm bg-primary text-white h-100">
                     <div class="card-body text-center p-5">
-                        <i class="bi bi-calendar-check display-1 mb-3"></i>
+                        <span class="bi bi-calendar-check display-1 mb-3"><span>
                         <h3 class="card-title">Total Reservas</h3>
                         <p class="display-2 fw-bold mb-0">${totalReservas}</p>
                     </div>
@@ -40,7 +40,7 @@
             <div class="col-md-5">
                 <div class="card border-0 shadow-sm bg-success text-white h-100">
                     <div class="card-body text-center p-5">
-                        <i class="bi bi-door-open display-1 mb-3"></i>
+                        <span class="bi bi-door-open display-1 mb-3"><span>
                         <h3 class="card-title">Habitaciones</h3>
                         <p class="display-2 fw-bold mb-0">${totalHabitaciones}</p>
                     </div>

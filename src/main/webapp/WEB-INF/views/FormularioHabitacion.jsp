@@ -87,7 +87,7 @@
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                                 <a href="<c:url value='/habitaciones' />" class="btn btn-outline-secondary px-4">Cancelar</a>
                                 <button type="submit" class="btn btn-primary px-5">
-                                    <i class="bi bi-check-lg"></i> Guardar Cambios
+                                    <span class="bi bi-check-lg"><span> Guardar Cambios
                                 </button>
                             </div>
 

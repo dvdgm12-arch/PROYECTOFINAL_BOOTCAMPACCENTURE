@@ -29,7 +29,7 @@
 			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
 				<a href="<c:url value='/login/principal' />"
 					class="btn btn-secondary btn-lg shadow-sm"> <i
-					class="bi bi-house-door-fill me-1"></i> Menú Principal
+					class="bi bi-house-door-fill me-1"><span> Menú Principal
 				</a> <span class="ms-3 text-muted"></span>
 			</div>
 		</div>
@@ -37,10 +37,10 @@
 
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h3 mb-0 text-secondary"><i class="bi bi-tools me-2"></i>Gestión de Incidencias</h2>
+            <h2 class="h3 mb-0 text-secondary"><span class="bi bi-tools me-2"><span>Gestión de Incidencias</h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
                 <a href="<c:url value='/incidencias/nuevo' />" class="btn btn-danger">
-                    <i class="bi bi-plus-circle"></i> Nueva Incidencia
+                    <span class="bi bi-plus-circle"><span> Nueva Incidencia
                 </a>
             </c:if>
         </div>
@@ -48,13 +48,14 @@
         <div class="card shadow-sm">
             <div class="card-body p-0">
                 <table class="table table-hover mb-0">
+                <caption>Listado de incidencias del Hotel Baratié</caption>
                     <thead class="table-thead">
                         <tr>
-                            <th>ID</th>
-                            <th>Habitación</th>
-                            <th>Estado</th>
-                            <th>Prioridad</th>
-                            <th>Apertura</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Habitación</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Prioridad</th>
+                            <th scope="col">Apertura</th>
                             <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
@@ -69,17 +70,17 @@
                                     </span>
                                 </td>
                                 <td class="align-middle">
-                                    <i class="bi bi-flag-fill ${inc.prioridad == 'alta' ? 'text-danger' : (inc.prioridad == 'media' ? 'text-warning' : 'text-info')}"></i>
+                                    <span class="bi bi-flag-fill ${inc.prioridad == 'alta' ? 'text-danger' : (inc.prioridad == 'media' ? 'text-warning' : 'text-info')}"><span>
                                     <span class="text-capitalize">${inc.prioridad}</span>
                                 </td>
                                 <td class="align-middle">
                                     <fmt:formatDate value="${inc.fechaApertura}" pattern="dd/MM/yyyy HH:mm" />
                                 </td>
                                 <td class="text-center">
-                                    <a href="<c:url value='/incidencias/detalle/${inc.id}' />" class="btn btn-sm btn-info text-white"><i class="bi bi-eye"></i></a>
+                                    <a href="<c:url value='/incidencias/detalle/${inc.id}' />" class="btn btn-sm btn-info text-white"><span class="bi bi-eye"><span></a>
                                     <c:if test="${usuarioSesion.rol == 'recepcionista'}">
-                                        <a href="<c:url value='/incidencias/editar/${inc.id}' />" class="btn btn-sm btn-warning text-white"><i class="bi bi-pencil-square"></i></a>
-                                        <a href="<c:url value='/incidencias/eliminar/${inc.id}' />" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar incidencia?')"><i class="bi bi-trash"></i></a>
+                                        <a href="<c:url value='/incidencias/editar/${inc.id}' />" class="btn btn-sm btn-warning text-white"><span class="bi bi-pencil-square"><span></a>
+                                        <a href="<c:url value='/incidencias/eliminar/${inc.id}' />" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar incidencia?')"><span class="bi bi-trash"><span></a>
                                     </c:if>
                                 </td>
                             </tr>

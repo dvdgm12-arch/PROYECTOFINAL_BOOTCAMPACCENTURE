@@ -25,31 +25,32 @@
 			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
 				<a href="<c:url value='/login/principal' />"
 					class="btn btn-secondary btn-lg shadow-sm"> <i
-					class="bi bi-house-door-fill me-1"></i> Menú Principal
+					class="bi bi-house-door-fill me-1"><span> Menú Principal
 				</a> <span class="ms-3 text-muted"></span>
 			</div>
 		</div>
 	</div>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h3"><i class="bi bi-calendar-check me-2"></i>Listado de Reservas</h2>
+            <h2 class="h3"><span class="bi bi-calendar-check me-2"><span>Listado de Reservas</h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
                 <a href="<c:url value='/reservas/nuevo' />" class="btn btn-success">
-                    <i class="bi bi-plus-lg"></i> Nueva Reserva
+                    <span class="bi bi-plus-lg"><span> Nueva Reserva
                 </a>
             </c:if>
         </div>
 
         <div class="card shadow-sm">
             <table class="table table-hover mb-0">
+            <caption>Listado de reservas del Hotel Baratié</caption>
                 <thead class="table-dark">
                     <tr>
-                        <th>ID</th>
-                        <th>Huésped</th>
-                        <th>Hab.</th>
-                        <th>Entrada</th>
-                        <th>Salida</th>
-                        <th>Total</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Huésped</th>
+                        <th scope="col">Hab.</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Salida</th>
+                        <th scope="col">Total</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -63,14 +64,14 @@
                             <td><fmt:formatDate value="${res.fechaSalida}" pattern="dd/MM/yyyy" /></td>
                             <td class="text-success fw-bold">${res.totalReserva}€</td>
                             <td class="text-center">
-                                <a href="<c:url value='/reservas/detalle/${res.id}' />" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></a>
+                                <a href="<c:url value='/reservas/detalle/${res.id}' />" class="btn btn-sm btn-outline-primary"><span class="bi bi-eye"><span></a>
                                 <c:if test="${usuarioSesion.rol == 'recepcionista'}">
-                                    <a href="<c:url value='/reservas/editar/${res.id}' />" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
+                                    <a href="<c:url value='/reservas/editar/${res.id}' />" class="btn btn-sm btn-outline-warning"><span class="bi bi-pencil"><span></a>
                                 </c:if>
                                 <c:if test="${usuarioSesion.rol == 'recepcionista'}">
                                 <a href="<c:url value='/reservas/eliminar/${res.id}' />" class="btn btn-sm btn-danger" 
                                 onclick="return confirm('¿Estás seguro de que deseas cancelar esta reserva?')">
-                                <i class="bi bi-trash"></i>
+                                <span class="bi bi-trash"><span>
                                 </a>
                                 </c:if>
                                 

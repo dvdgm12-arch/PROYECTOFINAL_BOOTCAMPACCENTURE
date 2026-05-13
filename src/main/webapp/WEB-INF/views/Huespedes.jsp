@@ -31,17 +31,17 @@
 			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
 				<a href="<c:url value='/login/principal' />"
 					class="btn btn-secondary btn-lg shadow-sm"> <i
-					class="bi bi-house-door-fill me-1"></i> Menú Principal
+					class="bi bi-house-door-fill me-1"><span> Menú Principal
 				</a> <span class="ms-3 text-muted"></span>
 			</div>
 		</div>
 	</div>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h3 mb-0 text-dark"><i class="bi bi-people-fill me-2"></i>Gestión de Huéspedes</h2>
+            <h2 class="h3 mb-0 text-dark"><span class="bi bi-people-fill me-2"><span>Gestión de Huéspedes</h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
                 <a href="<c:url value='/huespedes/nuevo' />" class="btn btn-add">
-                    <i class="bi bi-person-plus-fill"></i> Nuevo Huésped
+                    <span class="bi bi-person-plus-fill"><span> Nuevo Huésped
                 </a>
             </c:if>
         </div>
@@ -49,12 +49,13 @@
         <div class="card shadow border-0">
             <div class="card-body p-0">
                 <table class="table table-hover mb-0">
+                <caption>Listado de huéspedes del Hotel Baratié</caption>
                     <thead class="table-header">
                         <tr>
-                            <th>DNI / Pasaporte</th>
-                            <th>Nombre Completo</th>
-                            <th>Email</th>
-                            <th>Teléfono</th>
+                            <th scope="col">DNI / Pasaporte</th>
+                            <th scope="col">Nombre Completo</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Teléfono</th>
                             <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
@@ -66,10 +67,10 @@
                                 <td class="align-middle">${h.email}</td>
                                 <td class="align-middle">${h.telefono}</td>
                                 <td class="text-center">
-                                    <a href="<c:url value='/huespedes/detalle/${h.id}' />" class="btn btn-sm btn-outline-info"><i class="bi bi-search"></i></a>
+                                    <a href="<c:url value='/huespedes/detalle/${h.id}' />" class="btn btn-sm btn-outline-info"><span class="bi bi-search"><span></a>
                                     <c:if test="${usuarioSesion.rol == 'recepcionista'}">
-                                        <a href="<c:url value='/huespedes/editar/${h.id}' />" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
-                                        <a href="<c:url value='/huespedes/eliminar/${h.id}' />" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Eliminar registro?')"><i class="bi bi-trash"></i></a>
+                                        <a href="<c:url value='/huespedes/editar/${h.id}' />" class="btn btn-sm btn-outline-warning"><span class="bi bi-pencil"><span></a>
+                                        <a href="<c:url value='/huespedes/eliminar/${h.id}' />" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Eliminar registro?')"><span class="bi bi-trash"><span></a>
                                     </c:if>
                                 </td>
                             </tr>

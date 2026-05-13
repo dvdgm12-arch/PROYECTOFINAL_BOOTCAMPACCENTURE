@@ -46,7 +46,7 @@
     <nav class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
             <span class="navbar-brand mb-0 h1">
-                <i class="bi bi-building me-2 text-warning"></i>Baratié Management
+                <span class="bi bi-building me-2 text-warning"><span>Baratié Management
             </span>
             <div class="d-flex align-items-center text-white">
                 <span class="me-3 d-none d-md-inline">
@@ -54,7 +54,7 @@
                     <span class="badge bg-secondary ms-1 text-uppercase">${usuarioSesion.rol}</span>
                 </span>
                 <a href="<c:url value='/login/cerrar' />" class="btn btn-outline-danger btn-sm">
-                    <i class="bi bi-box-arrow-right"></i> Salir
+                    <span class="bi bi-box-arrow-right"><span> Salir
                 </a>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <div class="col-md-6 col-lg-3">
                 <a href="<c:url value='/habitaciones' />" class="text-decoration-none text-dark">
                     <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><i class="bi bi-door-closed"></i></div>
+                        <div class="icon-box"><span class="bi bi-door-closed"><span></div>
                         <h5 class="fw-bold">Habitaciones</h5>
                         <p class="small text-muted mb-0">Control de inventario y tipos</p>
                     </div>
@@ -82,7 +82,7 @@
             <div class="col-md-6 col-lg-3">
                 <a href="<c:url value='/huespedes' />" class="text-decoration-none text-dark">
                     <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><i class="bi bi-people"></i></div>
+                        <div class="icon-box"><span class="bi bi-people"><span></div>
                         <h5 class="fw-bold">Huéspedes</h5>
                         <p class="small text-muted mb-0">Registro y base de datos</p>
                     </div>
@@ -92,7 +92,7 @@
             <div class="col-md-6 col-lg-3">
                 <a href="<c:url value='/incidencias' />" class="text-decoration-none text-dark">
                     <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><i class="bi bi-tools"></i></div>
+                        <div class="icon-box"><span class="bi bi-tools"><span></div>
                         <h5 class="fw-bold">Incidencias</h5>
                         <p class="small text-muted mb-0">Mantenimiento y averías</p>
                     </div>
@@ -102,7 +102,7 @@
             <div class="col-md-6 col-lg-3">
                 <a href="<c:url value='/reservas' />" class="text-decoration-none text-dark">
                     <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><i class="bi bi-calendar-check"></i></div>
+                        <div class="icon-box"><span class="bi bi-calendar-check"><span></div>
                         <h5 class="fw-bold">Reservas</h5>
                         <p class="small text-muted mb-0">Gestión de estancias</p>
                     </div>
@@ -112,7 +112,7 @@
 
         <div class="row mt-5 mb-4">
             <div class="col">
-                <h4 class="fw-bold"><i class="bi bi-gear-wide-connected me-2"></i>Herramientas y Ayuda</h4>
+                <h4 class="fw-bold"><span class="bi bi-gear-wide-connected me-2"><span>Herramientas y Ayuda</h4>
             </div>
         </div>
 
@@ -120,7 +120,7 @@
             <div class="col-md-4">
                 <a href="<c:url value='/dashboard/resumen' />" class="text-decoration-none text-dark">
                     <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
-                        <i class="bi bi-graph-up-arrow fs-3 me-3 text-primary"></i>
+                        <span class="bi bi-graph-up-arrow fs-3 me-3 text-primary"><span>
                         <div>
                             <h6 class="mb-0 fw-bold">Estadísticas</h6>
                             <small class="text-muted">Resumen de ocupación</small>
@@ -131,7 +131,7 @@
             <div class="col-md-4">
                 <a href="<c:url value='/ayuda' />" class="text-decoration-none text-dark">
                     <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
-                        <i class="bi bi-journal-text fs-3 me-3 text-info"></i>
+                        <span class="bi bi-journal-text fs-3 me-3 text-info"><span>
                         <div>
                             <h6 class="mb-0 fw-bold">Guía de Usuario</h6>
                             <small class="text-muted">Manual del personal</small>
@@ -142,7 +142,7 @@
             <div class="col-md-4">
                 <a href="<c:url value='/terminos-condiciones' />" class="text-decoration-none text-dark">
                     <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
-                        <i class="bi bi-shield-check fs-3 me-3 text-success"></i>
+                        <span class="bi bi-shield-check fs-3 me-3 text-success"><span>
                         <div>
                             <h6 class="mb-0 fw-bold">Legal</h6>
                             <small class="text-muted">Términos y condiciones</small>
@@ -155,7 +155,7 @@
         <div class="row mt-5">
             <div class="col-12">
                 <div class="alert alert-info border-0 shadow-sm d-flex align-items-center">
-                    <i class="bi bi-info-circle-fill me-3 fs-4"></i>
+                    <span class="bi bi-info-circle-fill me-3 fs-4"><span>
                     <div>
                         Su último inicio de sesión fue el: <strong>${usuarioSesion.ultimoLogin}</strong>
                     </div>

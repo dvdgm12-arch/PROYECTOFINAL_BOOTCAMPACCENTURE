@@ -16,7 +16,7 @@
     <div class="container py-5">
         <div class="mb-4">
             <a href="<c:url value='/login/principal' />" class="btn btn-outline-primary shadow-sm">
-                <i class="bi bi-arrow-left me-2"></i> Volver
+                <span class="bi bi-arrow-left me-2"><span> Volver
             </a>
         </div>
         <div class="row justify-content-center">

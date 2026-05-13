@@ -21,7 +21,7 @@
                     </div>
                     <div class="card-body p-4">
                         <div class="text-center mb-4">
-                            <div class="display-4 text-secondary"><i class="bi bi-person-badge"></i></div>
+                            <div class="display-4 text-secondary"><span class="bi bi-person-badge"><span></div>
                             <h3 class="mt-2">${huesped.nombre} ${huesped.apellidos}</h3>
                             <span class="badge bg-info text-dark">ID Huésped: #${huesped.id}</span>
                         </div>

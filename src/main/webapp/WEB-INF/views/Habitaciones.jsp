@@ -32,7 +32,7 @@
 			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
 				<a href="<c:url value='/login/principal' />"
 					class="btn btn-secondary btn-lg shadow-sm"> <i
-					class="bi bi-house-door-fill me-1"></i> Menú Principal
+					class="bi bi-house-door-fill me-1"><span> Menú Principal
 				</a> <span class="ms-3 text-muted"></span>
 			</div>
 		</div>
@@ -43,7 +43,7 @@
             <h2 class="h3 mb-0 text-secondary">Listado de Habitaciones</h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
                 <a href="<c:url value='/habitaciones/nuevo' />" class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> Nueva Habitación
+                    <span class="bi bi-plus-circle"><span> Nueva Habitación
                 </a>
             </c:if>
         </div>
@@ -51,13 +51,14 @@
         <div class="card shadow-sm">
             <div class="card-body p-0">
                 <table class="table table-hover mb-0">
+                <caption>Listado de habitaciones del Hotel Baratié</caption>
                     <thead class="table-thead">
                         <tr>
-                            <th>Nº Hab.</th>
-                            <th>Planta</th>
-                            <th>Tipo</th>
-                            <th>Precio/Noche</th>
-                            <th>Estado</th>
+                            <th scope="col">Nº Hab.</th>
+                            <th scope="col">Planta</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Precio/Noche</th>
+                            <th scope="col">Estado</th>
                             <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
@@ -82,10 +83,10 @@
                                     </c:choose>
                                 </td>
                                 <td class="text-center">
-                                    <a href="<c:url value='/habitaciones/detalle/${hab.id}' />" class="btn btn-sm btn-info text-white"><i class="bi bi-eye"></i></a>
+                                    <a href="<c:url value='/habitaciones/detalle/${hab.id}' />" class="btn btn-sm btn-info text-white"><span class="bi bi-eye"><span></a>
                                     <c:if test="${usuarioSesion.rol == 'recepcionista'}">
-                                        <a href="<c:url value='/habitaciones/editar/${hab.id}' />" class="btn btn-sm btn-warning text-white"><i class="bi bi-pencil-square"></i></a>
-                                        <a href="<c:url value='/habitaciones/eliminar/${hab.id}' />" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar habitación?')"><i class="bi bi-trash"></i></a>
+                                        <a href="<c:url value='/habitaciones/editar/${hab.id}' />" class="btn btn-sm btn-warning text-white"><span class="bi bi-pencil-square"><span></a>
+                                        <a href="<c:url value='/habitaciones/eliminar/${hab.id}' />" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar habitación?')"><span class="bi bi-trash"><span></a>
                                     </c:if>
                                 </td>
                             </tr>
