@@ -8,7 +8,7 @@
     <title>Registro de Huéspedes | Baratié</title>
  
     <link rel="shortcut icon" type="image/png" href="<c:url value='/resources/images/favicon.png' />">
-     <link rel="icon" type="image/png" href="<c:url value='/resources/images/favicon.png' />">
+    <link rel="icon" type="image/png" href="<c:url value='/resources/images/favicon.png' />">
    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
@@ -26,22 +26,27 @@
         </div>
     </nav>
 
-    <div class="row mb-4">
-		<div class="col-12">
-			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
-				<a href="<c:url value='/login/principal' />"
-					class="btn btn-secondary btn-lg shadow-sm"> <i
-					class="bi bi-house-door-fill me-1"><span> Menú Principal
-				</a> <span class="ms-3 text-muted"></span>
-			</div>
-		</div>
-	</div>
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
+                    <a href="<c:url value='/login/principal' />" class="btn btn-secondary btn-lg shadow-sm"> 
+                        <span class="bi bi-house-door-fill me-1"></span> Menú Principal
+                    </a> 
+                    <span class="ms-3 text-muted"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h3 mb-0 text-dark"><span class="bi bi-people-fill me-2"><span>Gestión de Huéspedes</h2>
+            <h2 class="h3 mb-0 text-dark">
+                <span class="bi bi-people-fill me-2"></span>Gestión de Huéspedes
+            </h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
                 <a href="<c:url value='/huespedes/nuevo' />" class="btn btn-add">
-                    <span class="bi bi-person-plus-fill"><span> Nuevo Huésped
+                    <span class="bi bi-person-plus-fill"></span> Nuevo Huésped
                 </a>
             </c:if>
         </div>
@@ -56,7 +61,7 @@
                             <th scope="col">Nombre Completo</th>
                             <th scope="col">Email</th>
                             <th scope="col">Teléfono</th>
-                            <th class="text-center">Acciones</th>
+                            <th scope="col" class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,10 +72,16 @@
                                 <td class="align-middle">${h.email}</td>
                                 <td class="align-middle">${h.telefono}</td>
                                 <td class="text-center">
-                                    <a href="<c:url value='/huespedes/detalle/${h.id}' />" class="btn btn-sm btn-outline-info"><span class="bi bi-search"><span></a>
+                                    <a href="<c:url value='/huespedes/detalle/${h.id}' />" class="btn btn-sm btn-outline-info">
+                                        <span class="bi bi-search"></span>
+                                    </a>
                                     <c:if test="${usuarioSesion.rol == 'recepcionista'}">
-                                        <a href="<c:url value='/huespedes/editar/${h.id}' />" class="btn btn-sm btn-outline-warning"><span class="bi bi-pencil"><span></a>
-                                        <a href="<c:url value='/huespedes/eliminar/${h.id}' />" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Eliminar registro?')"><span class="bi bi-trash"><span></a>
+                                        <a href="<c:url value='/huespedes/editar/${h.id}' />" class="btn btn-sm btn-outline-warning">
+                                            <span class="bi bi-pencil"></span>
+                                        </a>
+                                        <a href="<c:url value='/huespedes/eliminar/${h.id}' />" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Eliminar registro?')">
+                                            <span class="bi bi-trash"></span>
+                                        </a>
                                     </c:if>
                                 </td>
                             </tr>

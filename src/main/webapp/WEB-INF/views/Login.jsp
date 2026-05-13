@@ -43,14 +43,14 @@
             <div class="col-md-5 col-lg-4">
                 <div class="card login-card p-4">
                     <div class="text-center mb-4">
-                        <span class="bi bi-door-open-fill text-warning" style="font-size: 3rem;"><span>
+                        <span class="bi bi-door-open-fill text-warning" style="font-size: 3rem;"></span>
                         <h2 class="h4 mt-2 fw-bold">Grand Resort Baratié</h2>
                         <p class="text-muted small">Gestión Interna</p>
                     </div>
 
                     <c:if test="${not empty error}">
                         <div class="alert alert-danger py-2 small text-center" role="alert">
-                            <span class="bi bi-exclamation-triangle-fill"><span> ${error}
+                            <span class="bi bi-exclamation-triangle-fill"></span> ${error}
                         </div>
                     </c:if>
 
@@ -58,14 +58,18 @@
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-uppercase">Usuario</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-light border-end-0"><span class="bi bi-person"><span></span>
+                                <span class="input-group-text bg-light border-end-0">
+                                    <span class="bi bi-person"></span>
+                                </span>
                                 <input name="username" type="text" class="form-control border-start-0 bg-light" required />
                             </div>
                         </div>
                         <div class="mb-4">
                             <label class="form-label small fw-bold text-uppercase">Contraseña</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-light border-end-0"><span class="bi bi-lock"><span></span>
+                                <span class="input-group-text bg-light border-end-0">
+                                    <span class="bi bi-lock"></span>
+                                </span>
                                 <input name="password" type="password" class="form-control border-start-0 bg-light" required />
                             </div>
                         </div>
@@ -76,7 +80,7 @@
                     
                     <div class="text-center mt-4">
                         <a href="<c:url value='/' />" class="text-decoration-none small text-muted">
-                            <span class="bi bi-arrow-left"><span> Volver a la web pública
+                            <span class="bi bi-arrow-left"></span> Volver a la web pública
                         </a>
                     </div>
                 </div>

@@ -27,23 +27,26 @@
             <a class="navbar-brand" href="<c:url value='/' />">Grand Resort Baratié</a>
         </div>
     </nav>
-	<div class="row mb-4">
-		<div class="col-12">
-			<div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
-				<a href="<c:url value='/login/principal' />"
-					class="btn btn-secondary btn-lg shadow-sm"> <i
-					class="bi bi-house-door-fill me-1"><span> Menú Principal
-				</a> <span class="ms-3 text-muted"></span>
-			</div>
-		</div>
-	</div>
 
-	<div class="container">
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 bg-white shadow-sm rounded d-flex align-items-center">
+                    <a href="<c:url value='/login/principal' />" class="btn btn-secondary btn-lg shadow-sm"> 
+                        <span class="bi bi-house-door-fill me-1"></span> Menú Principal
+                    </a> 
+                    <span class="ms-3 text-muted"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 mb-0 text-secondary">Listado de Habitaciones</h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
                 <a href="<c:url value='/habitaciones/nuevo' />" class="btn btn-primary">
-                    <span class="bi bi-plus-circle"><span> Nueva Habitación
+                    <span class="bi bi-plus-circle"></span> Nueva Habitación
                 </a>
             </c:if>
         </div>
@@ -59,7 +62,7 @@
                             <th scope="col">Tipo</th>
                             <th scope="col">Precio/Noche</th>
                             <th scope="col">Estado</th>
-                            <th class="text-center">Acciones</th>
+                            <th scope="col" class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,10 +86,16 @@
                                     </c:choose>
                                 </td>
                                 <td class="text-center">
-                                    <a href="<c:url value='/habitaciones/detalle/${hab.id}' />" class="btn btn-sm btn-info text-white"><span class="bi bi-eye"><span></a>
+                                    <a href="<c:url value='/habitaciones/detalle/${hab.id}' />" class="btn btn-sm btn-info text-white">
+                                        <span class="bi bi-eye"></span>
+                                    </a>
                                     <c:if test="${usuarioSesion.rol == 'recepcionista'}">
-                                        <a href="<c:url value='/habitaciones/editar/${hab.id}' />" class="btn btn-sm btn-warning text-white"><span class="bi bi-pencil-square"><span></a>
-                                        <a href="<c:url value='/habitaciones/eliminar/${hab.id}' />" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar habitación?')"><span class="bi bi-trash"><span></a>
+                                        <a href="<c:url value='/habitaciones/editar/${hab.id}' />" class="btn btn-sm btn-warning text-white">
+                                            <span class="bi bi-pencil-square"></span>
+                                        </a>
+                                        <a href="<c:url value='/habitaciones/eliminar/${hab.id}' />" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar habitación?')">
+                                            <span class="bi bi-trash"></span>
+                                        </a>
                                     </c:if>
                                 </td>
                             </tr>
