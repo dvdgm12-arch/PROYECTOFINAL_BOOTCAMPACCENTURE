@@ -69,7 +69,7 @@ public class ReservaController {
     }
 
     // GUARDAR RESERVA (ALTA Y MODIFICACIÓN)
-    @PostMapping("/guardar")
+    @PostMapping(value = "/guardar", params = "!id")
     public String guardarReserva(@ModelAttribute("reserva") Reserva reserva, HttpSession sesion) {
         Usuario usuarioSesion = (Usuario) sesion.getAttribute("usuarioSesion");
         if (usuarioSesion == null || usuarioSesion.getRol() != PerfilUsuario.recepcionista) {

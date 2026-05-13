@@ -63,7 +63,7 @@ public class HabitacionControlador {
     }
 
     // PROCESAR FORMULARIO
-    @PostMapping("/guardar")
+    @PostMapping(value = "/guardar", params = "!id")
     public String guardarHabitacion(@ModelAttribute("habitacion") Habitacion laHabitacion) {
         habitacionServicio.guardar(laHabitacion);
         return "redirect:/habitaciones";

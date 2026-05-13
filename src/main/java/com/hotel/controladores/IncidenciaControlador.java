@@ -97,7 +97,7 @@ public class IncidenciaControlador {
     }
 
     // PROCESAR FORMULARIO
-    @PostMapping("/guardar")
+    @PostMapping(value = "/guardar", params = "!id")
     public String guardarIncidencia(@ModelAttribute("incidencia") Incidencia laIncidencia) {
         incidenciaServicio.guardar(laIncidencia);
         return "redirect:/incidencias";
