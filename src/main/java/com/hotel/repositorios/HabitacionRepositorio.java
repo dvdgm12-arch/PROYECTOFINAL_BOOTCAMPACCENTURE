@@ -12,4 +12,6 @@ public interface HabitacionRepositorio {
     void guardar(Habitacion habitacion);
     
     void eliminar(int id);
+    
+    List<Habitacion> buscar(Integer numero, String tipo);
 }

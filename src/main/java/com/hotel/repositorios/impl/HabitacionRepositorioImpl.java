@@ -3,6 +3,7 @@ package com.hotel.repositorios.impl;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -41,5 +42,29 @@ public class HabitacionRepositorioImpl implements HabitacionRepositorio {
         if (hab != null) {
             miSesion.delete(hab);
         }
+    }
+    
+    @Override
+    public List<Habitacion> buscar(Integer numero, String tipo) {
+        Session miSesion = sessionFactory.getCurrentSession();
+        StringBuilder hql = new StringBuilder("FROM Habitacion h WHERE 1=1");
+        
+        if (numero != null) {
+            hql.append(" AND h.numero = :numero");
+        }
+        if (tipo != null && !tipo.trim().isEmpty()) {
+            hql.append(" AND lower(h.tipo) LIKE :tipo");
+        }
+
+        Query<Habitacion> laQuery = miSesion.createQuery(hql.toString(), Habitacion.class);
+
+        if (numero != null) {
+            laQuery.setParameter("numero", numero);
+        }
+        if (tipo != null && !tipo.trim().isEmpty()) {
+            laQuery.setParameter("tipo", "%" + tipo.trim().toLowerCase() + "%");
+        }
+
+        return laQuery.getResultList();
     }
 }

@@ -18,6 +18,7 @@
         body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; }
         .navbar-brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
         .table-thead { background-color: #2c3e50; color: white; }
+        .search-section { background-color: #ffffff; border-left: 4px solid #0d6efd; }
     </style>
 </head>
 <body>
@@ -42,6 +43,35 @@
     </div>
 
     <div class="container">
+        <div class="card shadow-sm mb-4 search-section">
+            <div class="card-body">
+                <form action="<c:url value='/habitaciones' />" method="GET" class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label class="form-label small fw-bold text-secondary">Nº DE HABITACIÓN</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white"><span class="bi bi-hash"></span></span>
+                            <input type="number" name="numero" class="form-control" placeholder="Ej: 101" value="${numeroBusqueda}">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label small fw-bold text-secondary">TIPO DE HABITACIÓN</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white"><span class="bi bi-door-open"></span></span>
+                            <input type="text" name="tipo" class="form-control" placeholder="Ej: Doble, Suite..." value="${tipoBusqueda}">
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex gap-2">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <span class="bi bi-search"></span> Buscar
+                        </button>
+                        <a href="<c:url value='/habitaciones' />" class="btn btn-outline-secondary" title="Limpiar">
+                            <span class="bi bi-arrow-clockwise"></span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 mb-0 text-secondary">Listado de Habitaciones</h2>
             <c:if test="${usuarioSesion.rol == 'recepcionista'}">
@@ -100,6 +130,13 @@
                                 </td>
                             </tr>
                         </c:forEach>
+                        <c:if test="${empty listaHabitaciones}">
+                            <tr>
+                                <td colspan="6" class="text-center py-4 text-muted">
+                                    No se han encontrado habitaciones con esos criterios.
+                                </td>
+                            </tr>
+                        </c:if>
                     </tbody>
                 </table>
             </div>

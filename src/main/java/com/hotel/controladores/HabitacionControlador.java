@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.entidades.Habitacion;
 import com.hotel.servicios.HabitacionServicio;
@@ -23,9 +24,23 @@ public class HabitacionControlador {
 
     // LISTADO
     @GetMapping
-    public String listarHabitaciones(Model modelo) {
-        List<Habitacion> lista = habitacionServicio.obtenerTodas();
+    public String listarHabitaciones(
+            @RequestParam(value = "numero", required = false) Integer numero,
+            @RequestParam(value = "tipo", required = false) String tipo,
+            Model modelo) {
+        
+        List<Habitacion> lista;
+        
+        if (numero != null || (tipo != null && !tipo.isEmpty())) {
+            lista = habitacionServicio.buscar(numero, tipo);
+        } else {
+            lista = habitacionServicio.obtenerTodas();
+        }
+        
         modelo.addAttribute("listaHabitaciones", lista);
+        modelo.addAttribute("numeroBusqueda", numero);
+        modelo.addAttribute("tipoBusqueda", tipo);
+        
         
         //PROBAR SIN ESTAR LOGEADOS
        /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
