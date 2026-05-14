@@ -1,6 +1,6 @@
 package com.hotel.entidades;
 
-import java.io.Serializable; // Añadido para la serialización
+import java.io.Serializable; 
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +15,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements Serializable { // Añadido implements Serializable
+public class Usuario implements Serializable { 
 
-    // ID de versión para la serialización (Recomendado por Sonar)
+    
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -46,10 +46,11 @@ public class Usuario implements Serializable { // Añadido implements Serializab
         recepcionista, supervisor
     }
 
-    // CONSTRUCTORES
+    // CONSTRUCTOR VACÍO
     public Usuario() {
     }
 
+    // CONSTRUCTOR DE PARÁMETROS
     public Usuario(String username, String password, String nombreCompleto, PerfilUsuario rol, Date ultimoLogin) {
         this.username = username;
         this.password = password;
@@ -58,7 +59,7 @@ public class Usuario implements Serializable { // Añadido implements Serializab
         this.ultimoLogin = ultimoLogin;
     }
 
-    // GETTERS Y SETTERS ACTUALIZADOS
+    // GETTERS Y SETTERS 
     public Integer getId() {
         return id;
     }

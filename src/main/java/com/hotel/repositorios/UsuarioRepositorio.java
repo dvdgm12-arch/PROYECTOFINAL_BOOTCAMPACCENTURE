@@ -1,4 +1,3 @@
-
 package com.hotel.repositorios;
 
 import com.hotel.entidades.Usuario;

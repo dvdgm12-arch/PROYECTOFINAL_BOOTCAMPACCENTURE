@@ -61,11 +61,10 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
--- 1. USUARIOS (Mínimo 2: Recepcionista y Supervisor)
--- Nota: Las contraseñas se guardan en texto plano por ahora para facilitar las pruebas
+-- 1. USUARIOS (Cifrados con BCrypt)
 INSERT INTO `usuarios` (`username`, `password`, `nombre_completo`, `perfil`, `ultimo_login`) VALUES 
-('admin_ana', '1234abcd', 'Ana García López', 'supervisor', NOW()),
-('recep_juan', 'juan2026', 'Juan Pérez Martínez', 'recepcionista', NOW());
+('admin_ana', '$2a$10$hv7W7NN3i6ZqcJi0ouFCjuhgOi.OPA0HuuPo3O7tiuo1OXOAOKuF2', 'Ana García López', 'supervisor', NOW()),
+('recep_juan', '$2a$10$lON3VpQcN7ISwQBBx.RHke0zjlAaHBvhZMwKFPpZkNO6x2M00wVJG', 'Juan Pérez Martínez', 'recepcionista', NOW());
 
 
 -- RESTAURACIÓN DE CONFIGURACIONES ORIGINALES

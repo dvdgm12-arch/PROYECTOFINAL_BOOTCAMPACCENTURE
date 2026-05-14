@@ -4,10 +4,10 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.hotel.entidades.Usuario;
 import com.hotel.repositorios.UsuarioRepositorio;
 import com.hotel.servicios.UsuarioServicio;
+import com.hotel.util.Encriptador; // Importamos tu utilidad
 
 @Service
 public class UsuarioServicioImpl implements UsuarioServicio {
@@ -17,11 +17,11 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 
     @Override
     @Transactional
-    public Usuario validarUsuario(String username, String password) {
+    public Usuario validarUsuario(String username, String passwordPlano) {
         
         Usuario user = usuarioRepositorio.obtenerPorUsername(username);
 
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && Encriptador.verificar(passwordPlano, user.getPassword())) {
             
             user.setUltimoLogin(new Date());
             usuarioRepositorio.actualizar(user);
@@ -33,12 +33,11 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Usuario obtenerPorId(Integer id) {
         return usuarioRepositorio.obtenerPorId(id);
     }
 }
-
 
 
 
