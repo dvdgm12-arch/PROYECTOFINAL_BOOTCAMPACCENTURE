@@ -17,6 +17,7 @@
         .table-header { background-color: #2c3e50; color: white; }
         .btn-add { background-color: #e67e22; border: none; color: white; }
         .btn-add:hover { background-color: #d35400; color: white; }
+        .search-card { border: none; border-left: 4px solid #e67e22; }
     </style>
 </head>
 <body>
@@ -40,6 +41,41 @@
     </div>
 
     <div class="container">
+        <div class="card shadow-sm mb-4 search-card">
+            <div class="card-body">
+                <form action="<c:url value='/huespedes' />" method="GET" class="row g-3 align-items-end">
+                    <div class="col-md-5">
+                        <label class="form-label small fw-bold text-muted text-uppercase">Nombre o Apellidos</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0 text-muted">
+                                <span class="bi bi-search"></span>
+                            </span>
+                            <input type="text" name="nombre" class="form-control border-start-0 bg-light" 
+                                   placeholder="Buscar por nombre..." value="${nombreBusqueda}">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label small fw-bold text-muted text-uppercase">DNI / Pasaporte</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0 text-muted">
+                                <span class="bi bi-card-text"></span>
+                            </span>
+                            <input type="text" name="dni" class="form-control border-start-0 bg-light" 
+                                   placeholder="Documento..." value="${dniBusqueda}">
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex gap-2">
+                        <button type="submit" class="btn btn-dark w-100 fw-bold">
+                            <span class="bi bi-funnel-fill"></span> Buscar
+                        </button>
+                        <a href="<c:url value='/huespedes' />" class="btn btn-outline-secondary" title="Limpiar filtros">
+                            <span class="bi bi-arrow-counterclockwise"></span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 mb-0 text-dark">
                 <span class="bi bi-people-fill me-2"></span>Gestión de Huéspedes
@@ -86,6 +122,13 @@
                                 </td>
                             </tr>
                         </c:forEach>
+                        <c:if test="${empty listaHuespedes}">
+                            <tr>
+                                <td colspan="5" class="text-center py-4 text-muted">
+                                    <span class="bi bi-info-circle me-1"></span> No se encontraron huéspedes con los criterios de búsqueda.
+                                </td>
+                            </tr>
+                        </c:if>
                     </tbody>
                 </table>
             </div>

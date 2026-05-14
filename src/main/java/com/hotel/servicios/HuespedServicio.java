@@ -13,4 +13,6 @@ public interface HuespedServicio{
     void guardar(Huesped huesped);
     
     void eliminar(Integer id);
+
+	List<Huesped> buscar(String nombre, String dni);
 }

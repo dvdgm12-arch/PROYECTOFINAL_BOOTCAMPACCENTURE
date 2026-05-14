@@ -46,6 +46,12 @@ package com.hotel.servicios.impl;
 	      
 	    }
 	    
+	    @Override
+	    @Transactional(readOnly = true) 
+	    public List<Huesped> buscar(String nombre, String dni) {
+	        return huespedRepositorio.buscar(nombre, dni);
+	    }
+	    
 }
 
 

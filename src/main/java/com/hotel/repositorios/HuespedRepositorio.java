@@ -12,4 +12,7 @@ public interface HuespedRepositorio {
     void guardar(Huesped huesped);
     
     void eliminar(Integer id);
+
+    // BÚSQUEDA
+    List<Huesped> buscar(String nombre, String dni);
 }
