@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.entidades.Usuario;
 import com.hotel.entidades.Usuario.PerfilUsuario;
@@ -33,10 +34,23 @@ public class ReservaController {
     
     // LISTADO
     @GetMapping
-    public String listarReservas(Model modelo, HttpSession sesion) {
-        if (sesion.getAttribute("usuarioSesion") == null) return "redirect:/login";
+    public String listarReservas(
+            @RequestParam(value = "dniBusqueda", required = false) String dniBusqueda,
+            @RequestParam(value = "habBusqueda", required = false) Integer habBusqueda,
+            Model modelo) {
         
-        modelo.addAttribute("listaReservas", reservaServicio.obtenerTodos());
+        List<Reserva> lista;
+        
+        if ((dniBusqueda != null && !dniBusqueda.isEmpty()) || habBusqueda != null) {
+            lista = reservaServicio.buscar(dniBusqueda, habBusqueda);
+        } else {
+            lista = reservaServicio.obtenerTodos();
+        }
+        
+        modelo.addAttribute("listaReservas", lista);
+        modelo.addAttribute("dniFiltro", dniBusqueda);
+        modelo.addAttribute("habFiltro", habBusqueda);
+        
         return "Reservas";
     }
     

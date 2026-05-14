@@ -6,7 +6,12 @@ import com.hotel.entidades.Reserva;
 public interface ReservaRepositorio {
     
     List<Reserva> obtenerTodos();
+    
     Reserva obtenerPorId(Integer id);
+    
     void guardar(Reserva reserva);
+    
     void eliminar(Integer id);
+    
+    List<Reserva> buscar(String dniHuesped, Integer numeroHabitacion);
 }

@@ -38,4 +38,10 @@ public class ReservaServicioImpl implements ReservaServicio {
     public void eliminar(Integer id) {
         reservaRepositorio.eliminar(id);
     }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Reserva> buscar(String dniHuesped, Integer numeroHabitacion) {
+        return reservaRepositorio.buscar(dniHuesped, numeroHabitacion);
+    }
 }
