@@ -12,4 +12,6 @@ public interface IncidenciaServicio {
     void guardar(Incidencia incidencia);
 
     void eliminar(int id);
+    
+    List<Incidencia> buscar(Integer numeroHabitacion, String estado);
 }

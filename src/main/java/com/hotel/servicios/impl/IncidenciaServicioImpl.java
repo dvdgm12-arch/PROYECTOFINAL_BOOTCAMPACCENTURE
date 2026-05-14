@@ -38,4 +38,10 @@ public class IncidenciaServicioImpl implements IncidenciaServicio {
     public void eliminar(int id) {
         incidenciaRepositorio.eliminar(id);
     }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Incidencia> buscar(Integer numeroHabitacion, String estado) {
+        return incidenciaRepositorio.buscar(numeroHabitacion, estado);
+    }
 }

@@ -3,6 +3,7 @@ package com.hotel.repositorios.impl;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -41,5 +42,31 @@ public class IncidenciaRepositorioImpl implements IncidenciaRepositorio {
         if (inc != null) {
             miSesion.delete(inc);
         }
+    }
+    
+    @Override
+    public List<Incidencia> buscar(Integer numeroHabitacion, String estado) {
+        Session miSesion = sessionFactory.getCurrentSession();
+        
+        // Usamos un Join implícito para acceder al número de la habitación
+        StringBuilder hql = new StringBuilder("FROM Incidencia i WHERE 1=1");
+        
+        if (numeroHabitacion != null) {
+            hql.append(" AND i.habitacion.numero = :numero");
+        }
+        if (estado != null && !estado.trim().isEmpty()) {
+            hql.append(" AND i.estado = :estado");
+        }
+
+        Query<Incidencia> laQuery = miSesion.createQuery(hql.toString(), Incidencia.class);
+
+        if (numeroHabitacion != null) {
+            laQuery.setParameter("numero", numeroHabitacion);
+        }
+        if (estado != null && !estado.trim().isEmpty()) {
+            laQuery.setParameter("estado", estado);
+        }
+
+        return laQuery.getResultList();
     }
 }

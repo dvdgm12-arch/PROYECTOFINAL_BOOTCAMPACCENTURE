@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.entidades.Incidencia;
 import com.hotel.entidades.Habitacion;
@@ -27,9 +28,22 @@ public class IncidenciaControlador {
 
     // LISTADO GENERAL
     @GetMapping
-    public String listarIncidencias(Model modelo) {
-        List<Incidencia> lista = incidenciaServicio.obtenerTodas();
+    public String listarIncidencias(
+            @RequestParam(value = "numeroHabitacion", required = false) Integer numeroHabitacion,
+            @RequestParam(value = "estado", required = false) String estado,
+            Model modelo) {
+        
+        List<Incidencia> lista;
+        
+        if (numeroHabitacion != null || (estado != null && !estado.isEmpty())) {
+            lista = incidenciaServicio.buscar(numeroHabitacion, estado);
+        } else {
+            lista = incidenciaServicio.obtenerTodas();
+        }
+        
         modelo.addAttribute("listaIncidencias", lista);
+        modelo.addAttribute("numHabBusqueda", numeroHabitacion);
+        modelo.addAttribute("estadoBusqueda", estado);
         
       //PROBAR SIN ESTAR LOGEADOS
      /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();

@@ -16,6 +16,7 @@
     <style>
         body { background-color: #f8f9fa; }
         .table-thead { background-color: #c0392b; color: white; }
+        .search-card { border-left: 4px solid #c0392b; }
     </style>
 </head>
 <body>
@@ -39,6 +40,38 @@
     </div>
 
     <div class="container">
+        <div class="card shadow-sm mb-4 search-card border-0">
+            <div class="card-body">
+                <form action="<c:url value='/incidencias' />" method="GET" class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label class="form-label small fw-bold text-muted">Nº HABITACIÓN</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><span class="bi bi-door-closed"></span></span>
+                            <input type="number" name="numeroHabitacion" class="form-control" 
+                                   placeholder="Ej: 204" value="${numHabBusqueda}">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label small fw-bold text-muted">ESTADO DE INCIDENCIA</label>
+                        <select name="estado" class="form-select">
+                            <option value="">-- Todos los estados --</option>
+                            <option value="abierta" ${estadoBusqueda == 'abierta' ? 'selected' : ''}>Abierta</option>
+                            <option value="en curso" ${estadoBusqueda == 'en curso' ? 'selected' : ''}>En curso</option>
+                            <option value="resuelta" ${estadoBusqueda == 'resuelta' ? 'selected' : ''}>Resuelta</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex gap-2">
+                        <button type="submit" class="btn btn-dark w-100 fw-bold">
+                            <span class="bi bi-filter"></span> Filtrar
+                        </button>
+                        <a href="<c:url value='/incidencias' />" class="btn btn-outline-danger" title="Limpiar">
+                            <span class="bi bi-x-circle"></span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 mb-0 text-secondary">
                 <span class="bi bi-tools me-2"></span>Gestión de Incidencias
@@ -96,6 +129,13 @@
                                 </td>
                             </tr>
                         </c:forEach>
+                        <c:if test="${empty listaIncidencias}">
+                            <tr>
+                                <td colspan="6" class="text-center py-4 text-muted">
+                                    <span class="bi bi-info-circle me-1"></span> No se han encontrado incidencias con esos filtros.
+                                </td>
+                            </tr>
+                        </c:if>
                     </tbody>
                 </table>
             </div>
