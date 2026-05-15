@@ -63,8 +63,8 @@ COLLATE = utf8mb4_unicode_ci;
 
 -- 1. USUARIOS (Cifrados con BCrypt)
 INSERT INTO `usuarios` (`username`, `password`, `nombre_completo`, `perfil`, `ultimo_login`) VALUES 
-('admin_ana', '$2a$10$hv7W7NN3i6ZqcJi0ouFCjuhgOi.OPA0HuuPo3O7tiuo1OXOAOKuF2', 'Ana García López', 'supervisor', NOW()),
-('recep_juan', '$2a$10$lON3VpQcN7ISwQBBx.RHke0zjlAaHBvhZMwKFPpZkNO6x2M00wVJG', 'Juan Pérez Martínez', 'recepcionista', NOW());
+('admin_ana', '$2a$10$ww/ozP1dtw0urUWZmRApz.BOUwXg3OV8ZGbmWC5ceBX1KsCS9N7Lu', 'Ana García López', 'supervisor', NOW()),
+('recep_juan', '$2a$10$sDAfLD6kpAHdmwz4UNmk/uc..jFhp/t56E57YMHb733tEeavRPR3u', 'Juan Pérez Martínez', 'recepcionista', NOW());
 
 
 -- RESTAURACIÓN DE CONFIGURACIONES ORIGINALES
