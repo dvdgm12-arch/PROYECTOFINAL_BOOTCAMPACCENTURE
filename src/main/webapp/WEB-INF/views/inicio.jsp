@@ -54,7 +54,7 @@
 
     <footer class="fixed-bottom py-3 text-center text-white-50">
         <div class="container">
-            <small>&copy; 2026 - Proyecto Final| Equipo B</small>
+            <small>&copy; 2026 - Proyecto Final | Equipo B</small>
         </div>
     </footer>
 
