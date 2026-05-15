@@ -7,9 +7,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.hotel.interceptores.AutenticacionInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -31,4 +34,14 @@ public class AppConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
+    
+
+    // REGISTRO DEL INTERCEPTOR DE SEGURIDAD
+     @Override
+     public void addInterceptors(InterceptorRegistry registry) {
+         registry.addInterceptor(new AutenticacionInterceptor())
+                 .addPathPatterns("/**")
+                 .excludePathPatterns("/login/**")               
+                 .excludePathPatterns("/resources/**");           
+     }
 }
