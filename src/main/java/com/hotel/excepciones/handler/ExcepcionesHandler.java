@@ -46,7 +46,9 @@ public class ExcepcionesHandler {
     }
     // CONFIG VISTA error.JSP ANTE 404
     @ExceptionHandler(NoHandlerFoundException.class)
-    public String manejar404() {
+    public String manejar404(Exception ex, Model model) {
+    	model.addAttribute("errorTitle", "¡Ups! Hemos tenido un problema");
+        model.addAttribute("mensaje", "Parece que algo no ha ido bien en el Baratié");
         return "error";
     }
 }
