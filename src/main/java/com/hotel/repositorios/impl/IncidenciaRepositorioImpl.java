@@ -19,7 +19,6 @@ public class IncidenciaRepositorioImpl implements IncidenciaRepositorio {
     @Override
     public List<Incidencia> obtenerTodas() {
         Session miSesion = sessionFactory.getCurrentSession();
-        // Usamos JOIN FETCH para cargar la habitación asociada de golpe y evitar errores en la vista
         return miSesion.createQuery("select i from Incidencia i join fetch i.habitacion", Incidencia.class).getResultList();
     }
 
@@ -48,7 +47,6 @@ public class IncidenciaRepositorioImpl implements IncidenciaRepositorio {
     public List<Incidencia> buscar(Integer numeroHabitacion, String estado) {
         Session miSesion = sessionFactory.getCurrentSession();
         
-        // Usamos un Join implícito para acceder al número de la habitación
         StringBuilder hql = new StringBuilder("FROM Incidencia i WHERE 1=1");
         
         if (numeroHabitacion != null) {
