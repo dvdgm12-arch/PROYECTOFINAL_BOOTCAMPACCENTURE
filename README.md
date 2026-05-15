@@ -1,3 +1,7 @@
+[![Quality gate](http://localhost:9000/api/project_badges/quality_gate?project=hotel-baratie)](http://localhost:9000/dashboard?id=hotel-baratie)
+
+
+
 # ProyectoFinalEquipoB
 	* FASE 0:
 			- CREACION PROYECTO
