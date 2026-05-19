@@ -43,7 +43,7 @@ INSERT INTO `huespedes` (`nombre`, `apellidos`, `dni_pasaporte`, `email`, `telef
 ('Laura', 'Sánchez Poo', '87654321B', 'laura@email.com', '600333444'),
 ('Marta', 'Gómez Fer', '11223344C', 'marta@email.com', '600555666'),
 ('Roberto', 'Leal Cano', '44332211D', 'roberto@email.com', '600777888'),
-('Elena', 'Jucar Vázquez', '55667788E', 'elena@email.com', '600999000');
+('Elena', 'Júcar Vázquez', '55667788E', 'elena@email.com', '600999000');
 
 -- -----------------------------------------------------
 -- Table `hoteldb`.`usuarios`
