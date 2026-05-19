@@ -12,19 +12,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hotel.entidades.Usuario;
 import com.hotel.servicios.UsuarioServicio;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
 @Controller
 @RequestMapping("/login")
 public class LoginControlador {
 
+    /** The usuario servicio. */
     @Autowired
     private UsuarioServicio usuarioServicio;
 
+    /**
+     * Mostrar login.
+     *
+     * @return the string
+     */
     // MOSTRAR FORMULARIO
     @GetMapping
     public String mostrarLogin() {
         return "Login";
     }
 
+    /**
+     * Autenticar.
+     *
+     * @param username the username
+     * @param password the password
+     * @param sesion the sesion
+     * @param modelo the modelo
+     * @return the string
+     */
     // PROCESAR FORMULARIO
     @PostMapping("/autenticar")
     public String autenticar(@RequestParam("username") String username, 
@@ -44,6 +68,12 @@ public class LoginControlador {
         }
     }
 
+    /**
+     * Mostrar principal.
+     *
+     * @param sesion the sesion
+     * @return the string
+     */
     // PÁGINA PRINCIPAL
     @GetMapping("/principal")
     public String mostrarPrincipal(HttpSession sesion) {
@@ -53,6 +83,12 @@ public class LoginControlador {
         return "Principal";
     }
 
+    /**
+     * Cerrar sesion.
+     *
+     * @param sesion the sesion
+     * @return the string
+     */
     // CERRAR SESION
     @GetMapping("/cerrar")
     public String cerrarSesion(HttpSession sesion) {

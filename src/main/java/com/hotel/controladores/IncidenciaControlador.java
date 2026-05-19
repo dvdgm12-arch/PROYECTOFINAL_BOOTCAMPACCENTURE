@@ -16,16 +16,35 @@ import com.hotel.entidades.Habitacion;
 import com.hotel.servicios.IncidenciaServicio;
 import com.hotel.servicios.HabitacionServicio;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
 @Controller
 @RequestMapping("/incidencias")
 public class IncidenciaControlador {
 
+    /** The incidencia servicio. */
     @Autowired
     private IncidenciaServicio incidenciaServicio;
 
+    /** The habitacion servicio. */
     @Autowired
     private HabitacionServicio habitacionServicio;
 
+    /**
+     * Listar incidencias.
+     *
+     * @param numeroHabitacion the numero habitacion
+     * @param estado the estado
+     * @param modelo the modelo
+     * @return the string
+     */
     // LISTADO GENERAL
     @GetMapping
     public String listarIncidencias(
@@ -45,29 +64,31 @@ public class IncidenciaControlador {
         modelo.addAttribute("numHabBusqueda", numeroHabitacion);
         modelo.addAttribute("estadoBusqueda", estado);
         
-      //PROBAR SIN ESTAR LOGEADOS
-     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("nombre", "Liante de Pruebas");
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-     // A respetar en el login // Ejemplo de lo que deberás tener en el login: session.setAttribute("usuarioSesion", usuarioEncontrado);
-        
         return "Incidencias";
     }
 
+    /**
+     * Ver detalle.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @return the string
+     */
     // DETALLE DE INCIDENCIA
     @GetMapping("/detalle/{id}")
     public String verDetalle(@PathVariable("id") int id, Model modelo) {
         Incidencia inc = incidenciaServicio.obtenerPorId(id);
         modelo.addAttribute("incidencia", inc);
         
-     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-        
         return "DetalleIncidencia";
     }
 
+    /**
+     * Mostrar formulario alta.
+     *
+     * @param modelo the modelo
+     * @return the string
+     */
     // FORMULARIO (ALTA)
     @GetMapping("/nuevo")
     public String mostrarFormularioAlta(Model modelo) {
@@ -82,13 +103,16 @@ public class IncidenciaControlador {
         modelo.addAttribute("incidencia", nuevaInc);
         modelo.addAttribute("listaHabitaciones", habitaciones);
         
-     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-        
         return "FormularioIncidencia";
     }
 
+    /**
+     * Mostrar formulario edicion.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @return the string
+     */
     // FORMULARIO (EDICIÓN)
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") int id, Model modelo) {
@@ -103,13 +127,15 @@ public class IncidenciaControlador {
         modelo.addAttribute("incidencia", incExistente);
         modelo.addAttribute("listaHabitaciones", habitaciones);
         
-     /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-        
         return "FormularioIncidencia";
     }
 
+    /**
+     * Guardar incidencia.
+     *
+     * @param laIncidencia the la incidencia
+     * @return the string
+     */
     // PROCESAR FORMULARIO
     @PostMapping(value = "/guardar", params = "!id")
     public String guardarIncidencia(@ModelAttribute("incidencia") Incidencia laIncidencia) {
@@ -117,6 +143,12 @@ public class IncidenciaControlador {
         return "redirect:/incidencias";
     }
 
+    /**
+     * Eliminar incidencia.
+     *
+     * @param id the id
+     * @return the string
+     */
     // ELIMINAR
     @GetMapping("/eliminar/{id}")
     public String eliminarIncidencia(@PathVariable("id") int id) {

@@ -10,24 +10,50 @@ import org.springframework.stereotype.Repository;
 import com.hotel.entidades.Habitacion;
 import com.hotel.repositorios.HabitacionRepositorio;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
 @Repository
 public class HabitacionRepositorioImpl implements HabitacionRepositorio {
 
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Obtener todas.
+     *
+     * @return the list
+     */
     @Override
     public List<Habitacion> obtenerTodas() {
         Session miSesion = sessionFactory.getCurrentSession();
         return miSesion.createQuery("from Habitacion", Habitacion.class).getResultList();
     }
 
+    /**
+     * Obtener por id.
+     *
+     * @param id the id
+     * @return the habitacion
+     */
     @Override
     public Habitacion obtenerPorId(int id) {
         Session miSesion = sessionFactory.getCurrentSession();
         return miSesion.get(Habitacion.class, id);
     }
 
+    /**
+     * Guardar.
+     *
+     * @param habitacion the habitacion
+     */
     @Override
     public void guardar(Habitacion habitacion) {
     	// UTILIZAMOS MÉTODO GUARDAR TANTO PARA ACTUALIZAR O CREAR
@@ -35,6 +61,11 @@ public class HabitacionRepositorioImpl implements HabitacionRepositorio {
         miSesion.saveOrUpdate(habitacion);
     }
 
+    /**
+     * Eliminar.
+     *
+     * @param id the id
+     */
     @Override
     public void eliminar(int id) {
         Session miSesion = sessionFactory.getCurrentSession();
@@ -44,6 +75,13 @@ public class HabitacionRepositorioImpl implements HabitacionRepositorio {
         }
     }
     
+    /**
+     * Buscar.
+     *
+     * @param numero the numero
+     * @param tipo the tipo
+     * @return the list
+     */
     @Override
     public List<Habitacion> buscar(Integer numero, String tipo) {
         Session miSesion = sessionFactory.getCurrentSession();

@@ -14,13 +14,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hotel.entidades.Huesped;
 import com.hotel.servicios.HuespedServicio;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
 @Controller
 @RequestMapping("/huespedes")
 public class HuespedControlador {
 
+    /** The huesped servicio. */
     @Autowired
     private HuespedServicio huespedServicio;
     
+    /**
+     * Listar huespedes.
+     *
+     * @param nombre the nombre
+     * @param dni the dni
+     * @param modelo the modelo
+     * @return the string
+     */
     // LISTADO GENERAL Y FILTROS BÚSQUEDA
     @GetMapping
     public String listarHuespedes(
@@ -42,27 +60,31 @@ public class HuespedControlador {
         modelo.addAttribute("nombreBusqueda", nombre);
         modelo.addAttribute("dniBusqueda", dni);
         
-        /*java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("nombre", "Liante de Pruebas");
-        usuarioFalso.put("rol", "recepcionista"); 
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-        
         return "Huespedes";
     }
     
+    /**
+     * Ver detalle.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @return the string
+     */
     // DETALLE DEL HUÉSPED
     @GetMapping("/detalle/{id}")
     public String verDetalle(@PathVariable("id") Integer id, Model modelo) {
         Huesped h = huespedServicio.obtenerPorId(id);
         modelo.addAttribute("huesped", h);
         
-        /*java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-        
         return "DetalleHuesped";
     }
     
+    /**
+     * Mostrar formulario alta.
+     *
+     * @param modelo the modelo
+     * @return the string
+     */
     // FORMULARIO (ALTA)
     @GetMapping("/nuevo")
     public String mostrarFormularioAlta(Model modelo) {
@@ -71,26 +93,31 @@ public class HuespedControlador {
         
         modelo.addAttribute("huesped", nuevoHuesped);
         
-        /*java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-        
         return "FormularioHuesped";
     }
     
+    /**
+     * Mostrar formulario edicion.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @return the string
+     */
     // FORMULARIO (EDICIÓN)
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") Integer id, Model modelo) {
         Huesped hExistente = huespedServicio.obtenerPorId(id);
         modelo.addAttribute("huesped", hExistente);
         
-       /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-        
         return "FormularioHuesped";
     }
     
+     /**
+      * Guardar huesped.
+      *
+      * @param elHuesped the el huesped
+      * @return the string
+      */
      // PROCESAR FORMULARIO
     @PostMapping(value = "/guardar")
     public String guardarHuesped(@ModelAttribute("huesped") Huesped elHuesped) {
@@ -98,6 +125,12 @@ public class HuespedControlador {
         return "redirect:/huespedes";
     }
 
+    /**
+     * Eliminar huesped.
+     *
+     * @param id the id
+     * @return the string
+     */
     // ELIMINAR
     @GetMapping("/eliminar/{id}")
     public String eliminarHuesped(@PathVariable("id") Integer id) {

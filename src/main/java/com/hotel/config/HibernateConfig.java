@@ -14,15 +14,31 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
+
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:db.properties")
 public class HibernateConfig {
 
+    /** The env. */
     @Autowired
     //LECTURA DE DB.PROPERTIES
     private Environment env;
 
+    /**
+     * Data source.
+     *
+     * @return the data source
+     */
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -33,6 +49,11 @@ public class HibernateConfig {
         return dataSource;
     }
 
+    /**
+     * Session factory.
+     *
+     * @return the local session factory bean
+     */
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -50,6 +71,11 @@ public class HibernateConfig {
         return sessionFactory;
     }
 
+    /**
+     * Transaction manager.
+     *
+     * @return the hibernate transaction manager
+     */
     @Bean
     public HibernateTransactionManager transactionManager() {
         HibernateTransactionManager txManager = new HibernateTransactionManager();

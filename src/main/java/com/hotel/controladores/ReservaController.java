@@ -19,19 +19,39 @@ import com.hotel.servicios.ReservaServicio;
 import com.hotel.servicios.HuespedServicio;
 import com.hotel.servicios.HabitacionServicio;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
 @Controller
 @RequestMapping("/reservas")
 public class ReservaController {
 
+    /** The reserva servicio. */
     @Autowired
     private ReservaServicio reservaServicio;
 
+    /** The huesped servicio. */
     @Autowired
     private HuespedServicio huespedServicio;
 
+    /** The habitacion servicio. */
     @Autowired
     private HabitacionServicio habitacionServicio;
     
+    /**
+     * Listar reservas.
+     *
+     * @param dniBusqueda the dni busqueda
+     * @param habBusqueda the hab busqueda
+     * @param modelo the modelo
+     * @return the string
+     */
     // LISTADO
     @GetMapping
     public String listarReservas(
@@ -54,6 +74,14 @@ public class ReservaController {
         return "Reservas";
     }
     
+    /**
+     * Ver detalle.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @param sesion the sesion
+     * @return the string
+     */
     // DETALLE RESERVA
     @GetMapping("/detalle/{id}")
     public String verDetalle(@PathVariable("id") Integer id, Model modelo, HttpSession sesion) {
@@ -65,6 +93,13 @@ public class ReservaController {
         
     }  
     
+    /**
+     * Mostrar formulario nuevo.
+     *
+     * @param modelo the modelo
+     * @param sesion the sesion
+     * @return the string
+     */
     // FORMULARIO (ALTA)
     @GetMapping("/nuevo")
     public String mostrarFormularioNuevo(Model modelo, HttpSession sesion) {
@@ -82,6 +117,13 @@ public class ReservaController {
         return "FormularioReserva";
     }
 
+    /**
+     * Guardar reserva.
+     *
+     * @param reserva the reserva
+     * @param sesion the sesion
+     * @return the string
+     */
     // GUARDAR RESERVA (ALTA Y MODIFICACIÓN)
     @PostMapping(value = "/guardar", params = "!id")
     public String guardarReserva(@ModelAttribute("reserva") Reserva reserva, HttpSession sesion) {
@@ -94,6 +136,14 @@ public class ReservaController {
         return "redirect:/reservas";
     }
 
+    /**
+     * Mostrar formulario editar.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @param sesion the sesion
+     * @return the string
+     */
     // MODIFICAR RESERVA
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEditar(@PathVariable("id") Integer id, Model modelo, HttpSession sesion) {
@@ -109,6 +159,13 @@ public class ReservaController {
         return "FormularioReserva";
     }
     
+    /**
+     * Eliminar reserva.
+     *
+     * @param id the id
+     * @param sesion the sesion
+     * @return the string
+     */
     // ELIMINAR RESERVA
     @GetMapping("/eliminar/{id}")
     public String eliminarReserva(@PathVariable("id") Integer id, HttpSession sesion) {

@@ -10,24 +10,50 @@ import org.springframework.stereotype.Repository;
 import com.hotel.entidades.Huesped;
 import com.hotel.repositorios.HuespedRepositorio;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
 @Repository
 public class HuespedRepositorioImpl implements HuespedRepositorio {
 
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Obtener todas.
+     *
+     * @return the list
+     */
     @Override
     public List<Huesped> obtenerTodas() {
         Session miSesion = sessionFactory.getCurrentSession();
         return miSesion.createQuery("from Huesped", Huesped.class).getResultList();
     }
 
+    /**
+     * Obtener por id.
+     *
+     * @param id the id
+     * @return the huesped
+     */
     @Override
     public Huesped obtenerPorId(Integer id) {
         Session miSesion = sessionFactory.getCurrentSession();
         return miSesion.get(Huesped.class, id);
     }
 
+    /**
+     * Guardar.
+     *
+     * @param huesped the huesped
+     */
     @Override
     public void guardar(Huesped huesped) {
         // UTILIZAMOS MÉTODO GUARDAR TANTO PARA ACTUALIZAR O CREAR
@@ -35,6 +61,11 @@ public class HuespedRepositorioImpl implements HuespedRepositorio {
         miSesion.saveOrUpdate(huesped);
     }
 
+    /**
+     * Eliminar.
+     *
+     * @param id the id
+     */
     @Override
     public void eliminar(Integer id) {
         Session miSesion = sessionFactory.getCurrentSession();
@@ -44,6 +75,13 @@ public class HuespedRepositorioImpl implements HuespedRepositorio {
         }
     }
 
+    /**
+     * Buscar.
+     *
+     * @param nombre the nombre
+     * @param dni the dni
+     * @return the list
+     */
     @Override
     public List<Huesped> buscar(String nombre, String dni) {
         Session miSesion = sessionFactory.getCurrentSession();

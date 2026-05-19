@@ -15,13 +15,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hotel.entidades.Habitacion;
 import com.hotel.servicios.HabitacionServicio;
 
+// TODO: Auto-generated Javadoc
+/**
+ * *.
+ *
+ * @author Lidia Sandá López & David García Moreno
+ * @version 1.0 VERSIÓN GOLD - 19/05/2026
+ */
+ 
+
 @Controller
 @RequestMapping("/habitaciones")
 public class HabitacionControlador {
 
+    /** The habitacion servicio. */
     @Autowired
     private HabitacionServicio habitacionServicio;
 
+    /**
+     * Listar habitaciones.
+     *
+     * @param numero the numero
+     * @param tipo the tipo
+     * @param modelo the modelo
+     * @return the string
+     */
     // LISTADO
     @GetMapping
     public String listarHabitaciones(
@@ -41,17 +59,16 @@ public class HabitacionControlador {
         modelo.addAttribute("numeroBusqueda", numero);
         modelo.addAttribute("tipoBusqueda", tipo);
         
-        
-        //PROBAR SIN ESTAR LOGEADOS
-       /* java.util.Map<String, String> usuarioFalso = new java.util.HashMap<>();
-        usuarioFalso.put("nombre", "Liante de Pruebas");
-        usuarioFalso.put("rol", "recepcionista");
-        modelo.addAttribute("usuarioSesion", usuarioFalso); */
-     // A respetar en el login // Ejemplo de lo que deberás tener en el login: session.setAttribute("usuarioSesion", usuarioEncontrado);  
-        
         return "Habitaciones"; 
     }
 
+    /**
+     * Ver detalle.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @return the string
+     */
     // DETALLE
     @GetMapping("/detalle/{id}")
     public String verDetalle(@PathVariable("id") int id, Model modelo) {
@@ -60,6 +77,12 @@ public class HabitacionControlador {
         return "DetalleHabitacion";
     }
 
+    /**
+     * Mostrar formulario alta.
+     *
+     * @param modelo the modelo
+     * @return the string
+     */
     // MOSTRAR FORMULARIO (ALTA)
     @GetMapping("/nuevo")
     public String mostrarFormularioAlta(Model modelo) {
@@ -69,6 +92,13 @@ public class HabitacionControlador {
         return "FormularioHabitacion";
     }
 
+    /**
+     * Mostrar formulario edicion.
+     *
+     * @param id the id
+     * @param modelo the modelo
+     * @return the string
+     */
     // MOSTRAR FORMULARIO (EDICIÓN)
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") int id, Model modelo) {
@@ -77,6 +107,12 @@ public class HabitacionControlador {
         return "FormularioHabitacion";
     }
 
+    /**
+     * Guardar habitacion.
+     *
+     * @param laHabitacion the la habitacion
+     * @return the string
+     */
     // PROCESAR FORMULARIO
     @PostMapping(value = "/guardar", params = "!id")
     public String guardarHabitacion(@ModelAttribute("habitacion") Habitacion laHabitacion) {
@@ -84,6 +120,12 @@ public class HabitacionControlador {
         return "redirect:/habitaciones";
     }
 
+    /**
+     * Eliminar habitacion.
+     *
+     * @param id the id
+     * @return the string
+     */
     // ELIMINAR
     @GetMapping("/eliminar/{id}")
     public String eliminarHabitacion(@PathVariable("id") int id) {
