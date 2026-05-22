@@ -64,8 +64,8 @@
                         <button type="submit" class="btn btn-dark w-100 fw-bold">
                             <span class="bi bi-filter"></span> Filtrar
                         </button>
-                        <a href="<c:url value='/incidencias' />" class="btn btn-outline-danger" title="Limpiar">
-                            <span class="bi bi-x-circle"></span>
+                        <a href="<c:url value='/incidencias' />" class="btn btn-outline-secondary" title="Limpiar">
+                            <span class="bi bi-arrow-clockwise"></span>
                         </a>
                     </div>
                 </form>
