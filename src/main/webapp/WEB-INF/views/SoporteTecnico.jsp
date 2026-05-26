@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Panel de Control | Baratié</title>
+    <title>Contacto y Soporte | Baratié</title>
     
     <link rel="shortcut icon" type="image/png" href="<c:url value='/resources/images/favicon.png' />">
     <link rel="icon" type="image/png" href="<c:url value='/resources/images/favicon.png' />">
@@ -14,40 +14,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
     <style>
-        .menu-card {
+        .support-card {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border: none;
-            border-bottom: 4px solid transparent;
         }
-        .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-bottom: 4px solid #e67e22;
+        .support-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
         .icon-box {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #2c3e50;
         }
-        
-        .nav-card {
-            background-color: #ffffff;
-            border: 1px solid #dee2e6;
-            transition: all 0.2s;
-        }
-        .nav-card:hover {
-            background-color: #f8f9fa;
-            border-color: #e67e22;
-        }
     </style>
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between align-items-center">
-            <span class="navbar-brand mb-0 h1">
+            <div class="navbar-brand mb-0 h1">
                 <span class="bi bi-building me-2 text-warning"></span>Baratié Management
-            </span>
+            </div>
             <div class="d-flex align-items-center text-white">
                 <span class="me-3 d-none d-md-inline">
                     Bienvenido, <strong>${usuarioSesion.nombreCompleto}</strong> 
@@ -61,123 +49,46 @@
     </nav>
 
     <div class="container py-5">
-        <div class="row mb-4">
-            <div class="col">
-                <h2 class="fw-bold">Panel Principal</h2>
-                <p class="text-muted">Seleccione el módulo que desea gestionar</p>
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-8">
+                <h2 class="fw-bold"><span class="bi bi-headset me-2 text-danger"></span>Soporte Técnico y Contacto</h2>
+                <p class="text-muted">¿Tienes alguna incidencia con la aplicación? Estamos aquí para ayudarte.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="<c:url value='/login/principal' />" class="btn btn-secondary shadow-sm">
+                    <span class="bi bi-arrow-left-short fs-5 align-middle"></span> Volver al Panel
+                </a>
             </div>
         </div>
 
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 text-center p-4 menu-card position-relative">
-                    <div class="icon-box"><span class="bi bi-door-closed"></span></div>
-                    <h5 class="fw-bold">
-                        <a href="<c:url value='/habitaciones' />" class="text-decoration-none text-dark stretched-link">
-                            Habitaciones
-                        </a>
-                    </h5>
-                    <p class="small text-muted mb-0">Control de inventario y tipos</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 text-center p-4 menu-card position-relative">
-                    <div class="icon-box"><span class="bi bi-people"></span></div>
-                    <h5 class="fw-bold">
-                        <a href="<c:url value='/huespedes' />" class="text-decoration-none text-dark stretched-link">
-                            Huéspedes
-                        </a>
-                    </h5>
-                    <p class="small text-muted mb-0">Registro y base de datos</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 text-center p-4 menu-card position-relative">
-                    <div class="icon-box"><span class="bi bi-tools"></span></div>
-                    <h5 class="fw-bold">
-                        <a href="<c:url value='/incidencias' />" class="text-decoration-none text-dark stretched-link">
-                            Incidencias
-                        </a>
-                    </h5>
-                    <p class="small text-muted mb-0">Mantenimiento y averías</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 text-center p-4 menu-card position-relative">
-                    <div class="icon-box"><span class="bi bi-calendar-check"></span></div>
-                    <h5 class="fw-bold">
-                        <a href="<c:url value='/reservas' />" class="text-decoration-none text-dark stretched-link">
-                            Reservas
-                        </a>
-                    </h5>
-                    <p class="small text-muted mb-0">Gestión de estancias</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-5 mb-4">
-            <div class="col">
-                <h4 class="fw-bold"><span class="bi bi-gear-wide-connected me-2"></span>Herramientas y Ayuda</h4>
-            </div>
-        </div>
-
-        <div class="row g-3">
-            <div class="col-md-6 col-lg-3">
-                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
-                    <span class="bi bi-graph-up-arrow fs-3 me-3 text-primary"></span>
-                    <div>
-                        <h6 class="mb-0 fw-bold">
-                            <a href="<c:url value='/dashboard/resumen' />" class="text-decoration-none text-dark stretched-link">
-                                Estadísticas
-                            </a>
-                        </h6>
-                        <small class="text-muted">Resumen de ocupación</small>
+            <div class="col-md-6">
+                <div class="card p-4 h-100 support-card shadow-sm">
+                    <div class="icon-box text-danger">
+                        <span class="bi bi-telephone-inbound-fill"></span>
                     </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
-                    <span class="bi bi-journal-text fs-3 me-3 text-info"></span>
-                    <div>
-                        <h6 class="mb-0 fw-bold">
-                            <a href="<c:url value='/ayuda' />" class="text-decoration-none text-dark stretched-link">
-                                Guía de Usuario
-                            </a>
-                        </h6>
-                        <small class="text-muted">Manual del personal</small>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
-                    <span class="bi bi-shield-check fs-3 me-3 text-success"></span>
-                    <div>
-                        <h6 class="mb-0 fw-bold">
-                            <a href="<c:url value='/terminos-condiciones' />" class="text-decoration-none text-dark stretched-link">
-                                Legal
-                            </a>
-                        </h6>
-                        <small class="text-muted">Términos y condiciones</small>
-                    </div>
+                    <h4 class="fw-bold mb-3">Atención Inmediata</h4>
+                    <p class="text-muted">Para problemas críticos que impidan el registro de huéspedes o la asignación de habitaciones:</p>
+                    <ul class="list-unstyled mt-3 fs-5">
+                        <li class="mb-2"><span class="bi bi-telephone text-secondary me-2"></span> Extensión Interna: <strong>999</strong></li>
+                        <li class="mb-2"><span class="bi bi-envelope text-secondary me-2"></span> soporte@baratie-resort.com</li>
+                        <li><span class="bi bi-clock text-secondary me-2"></span> Horario: 24/7 (Soporte Hotelero)</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-3">
-                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
-                    <span class="bi bi-headset fs-3 me-3 text-danger"></span>
-                    <div>
-                        <h6 class="mb-0 fw-bold">
-                            <a href="<c:url value='/contacto-soporte' />" class="text-decoration-none text-dark stretched-link">
-                                Soporte Técnico
-                            </a>
-                        </h6>
-                        <small class="text-muted">Contacto con sistemas</small>
+            <div class="col-md-6">
+                <div class="card p-4 h-100 support-card shadow-sm">
+                    <div class="icon-box text-warning">
+                        <span class="bi bi-exclamation-triangle-fill"></span>
                     </div>
+                    <h4 class="fw-bold mb-3">¿Problemas con los datos?</h4>
+                    <p class="text-muted">Antes de contactar con el administrador, asegúrate de verificar las siguientes directrices:</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><span class="bi bi-check2-circle text-success me-2"></span> Comprueba que la habitación no tenga incidencias abiertas antes de asignarla a una reserva.</li>
+                        <li class="mb-2"><span class="bi bi-check2-circle text-success me-2"></span> Los formatos de fechas deben seguir el estándar del hotel.</li>
+                        <li><span class="bi bi-check2-circle text-success me-2"></span> Recuerda cerrar la sesión si vas a ausentarte de tu puesto de trabajo.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -187,7 +98,7 @@
                 <div class="alert alert-info border-0 shadow-sm d-flex align-items-center">
                     <span class="bi bi-info-circle-fill me-3 fs-4"></span>
                     <div>
-                        Su último inicio de sesión fue el: <strong>${usuarioSesion.ultimoLogin}</strong>
+                        Sesión activa como: <strong class="text-uppercase">${usuarioSesion.rol}</strong> | ID de Usuario: <strong>${usuarioSesion.id}</strong>
                     </div>
                 </div>
             </div>
