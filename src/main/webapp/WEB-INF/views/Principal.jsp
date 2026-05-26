@@ -70,43 +70,51 @@
 
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
-                <a href="<c:url value='/habitaciones' />" class="text-decoration-none text-dark">
-                    <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><span class="bi bi-door-closed"></span></div>
-                        <h5 class="fw-bold">Habitaciones</h5>
-                        <p class="small text-muted mb-0">Control de inventario y tipos</p>
-                    </div>
-                </a>
+                <div class="card h-100 text-center p-4 menu-card position-relative">
+                    <div class="icon-box"><span class="bi bi-door-closed"></span></div>
+                    <h5 class="fw-bold">
+                        <a href="<c:url value='/habitaciones' />" class="text-decoration-none text-dark stretched-link">
+                            Habitaciones
+                        </a>
+                    </h5>
+                    <p class="small text-muted mb-0">Control de inventario y tipos</p>
+                </div>
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <a href="<c:url value='/huespedes' />" class="text-decoration-none text-dark">
-                    <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><span class="bi bi-people"></span></div>
-                        <h5 class="fw-bold">Huéspedes</h5>
-                        <p class="small text-muted mb-0">Registro y base de datos</p>
-                    </div>
-                </a>
+                <div class="card h-100 text-center p-4 menu-card position-relative">
+                    <div class="icon-box"><span class="bi bi-people"></span></div>
+                    <h5 class="fw-bold">
+                        <a href="<c:url value='/huespedes' />" class="text-decoration-none text-dark stretched-link">
+                            Huéspedes
+                        </a>
+                    </h5>
+                    <p class="small text-muted mb-0">Registro y base de datos</p>
+                </div>
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <a href="<c:url value='/incidencias' />" class="text-decoration-none text-dark">
-                    <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><span class="bi bi-tools"></span></div>
-                        <h5 class="fw-bold">Incidencias</h5>
-                        <p class="small text-muted mb-0">Mantenimiento y averías</p>
-                    </div>
-                </a>
+                <div class="card h-100 text-center p-4 menu-card position-relative">
+                    <div class="icon-box"><span class="bi bi-tools"></span></div>
+                    <h5 class="fw-bold">
+                        <a href="<c:url value='/incidencias' />" class="text-decoration-none text-dark stretched-link">
+                            Incidencias
+                        </a>
+                    </h5>
+                    <p class="small text-muted mb-0">Mantenimiento y averías</p>
+                </div>
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <a href="<c:url value='/reservas' />" class="text-decoration-none text-dark">
-                    <div class="card h-100 text-center p-4 menu-card">
-                        <div class="icon-box"><span class="bi bi-calendar-check"></span></div>
-                        <h5 class="fw-bold">Reservas</h5>
-                        <p class="small text-muted mb-0">Gestión de estancias</p>
-                    </div>
-                </a>
+                <div class="card h-100 text-center p-4 menu-card position-relative">
+                    <div class="icon-box"><span class="bi bi-calendar-check"></span></div>
+                    <h5 class="fw-bold">
+                        <a href="<c:url value='/reservas' />" class="text-decoration-none text-dark stretched-link">
+                            Reservas
+                        </a>
+                    </h5>
+                    <p class="small text-muted mb-0">Gestión de estancias</p>
+                </div>
             </div>
         </div>
 
@@ -117,38 +125,60 @@
         </div>
 
         <div class="row g-3">
-            <div class="col-md-4">
-                <a href="<c:url value='/dashboard/resumen' />" class="text-decoration-none text-dark">
-                    <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
-                        <span class="bi bi-graph-up-arrow fs-3 me-3 text-primary"></span>
-                        <div>
-                            <h6 class="mb-0 fw-bold">Estadísticas</h6>
-                            <small class="text-muted">Resumen de ocupación</small>
-                        </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
+                    <span class="bi bi-graph-up-arrow fs-3 me-3 text-primary"></span>
+                    <div>
+                        <h6 class="mb-0 fw-bold">
+                            <a href="<c:url value='/dashboard/resumen' />" class="text-decoration-none text-dark stretched-link">
+                                Estadísticas
+                            </a>
+                        </h6>
+                        <small class="text-muted">Resumen de ocupación</small>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-md-4">
-                <a href="<c:url value='/ayuda' />" class="text-decoration-none text-dark">
-                    <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
-                        <span class="bi bi-journal-text fs-3 me-3 text-info"></span>
-                        <div>
-                            <h6 class="mb-0 fw-bold">Guía de Usuario</h6>
-                            <small class="text-muted">Manual del personal</small>
-                        </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
+                    <span class="bi bi-journal-text fs-3 me-3 text-info"></span>
+                    <div>
+                        <h6 class="mb-0 fw-bold">
+                            <a href="<c:url value='/ayuda' />" class="text-decoration-none text-dark stretched-link">
+                                Guía de Usuario
+                            </a>
+                        </h6>
+                        <small class="text-muted">Manual del personal</small>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-md-4">
-                <a href="<c:url value='/terminos-condiciones' />" class="text-decoration-none text-dark">
-                    <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center">
-                        <span class="bi bi-shield-check fs-3 me-3 text-success"></span>
-                        <div>
-                            <h6 class="mb-0 fw-bold">Legal</h6>
-                            <small class="text-muted">Términos y condiciones</small>
-                        </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
+                    <span class="bi bi-shield-check fs-3 me-3 text-success"></span>
+                    <div>
+                        <h6 class="mb-0 fw-bold">
+                            <a href="<c:url value='/terminos-condiciones' />" class="text-decoration-none text-dark stretched-link">
+                                Legal
+                            </a>
+                        </h6>
+                        <small class="text-muted">Términos y condiciones</small>
                     </div>
-                </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-3 nav-card shadow-sm h-100 d-flex flex-row align-items-center position-relative">
+                    <span class="bi bi-headset fs-3 me-3 text-danger"></span>
+                    <div>
+                        <h6 class="mb-0 fw-bold">
+                            <a href="<c:url value='/contacto-soporte' />" class="text-decoration-none text-dark stretched-link">
+                                Soporte Técnico
+                            </a>
+                        </h6>
+                        <small class="text-muted">Contacto con sistemas</small>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -165,9 +195,3 @@
     </div>
 </body>
 </html>
-
-
-
-
-
-
