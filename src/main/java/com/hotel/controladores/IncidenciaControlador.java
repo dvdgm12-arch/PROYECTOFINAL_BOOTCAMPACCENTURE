@@ -137,8 +137,18 @@ public class IncidenciaControlador {
      * @return the string
      */
     // PROCESAR FORMULARIO
-    @PostMapping(value = "/guardar", params = "!id")
-    public String guardarIncidencia(@ModelAttribute("incidencia") Incidencia laIncidencia) {
+    @PostMapping("/guardar")
+    public String guardarIncidencia(@ModelAttribute("incidencia") Incidencia laIncidencia, 
+                                    @RequestParam("id") Integer id) {
+        
+        
+        if (id != null && id > 0) {
+            laIncidencia.setId(id);
+        } else {
+            
+            laIncidencia.setId(null);
+        }
+        
         incidenciaServicio.guardar(laIncidencia);
         return "redirect:/incidencias";
     }

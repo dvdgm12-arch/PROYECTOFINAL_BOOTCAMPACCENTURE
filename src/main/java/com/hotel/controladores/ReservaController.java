@@ -125,14 +125,19 @@ public class ReservaController {
      * @return the string
      */
     // GUARDAR RESERVA (ALTA Y MODIFICACIÓN)
-    @PostMapping(value = "/guardar", params = "!id")
-    public String guardarReserva(@ModelAttribute("reserva") Reserva reserva, HttpSession sesion) {
-        Usuario usuarioSesion = (Usuario) sesion.getAttribute("usuarioSesion");
-        if (usuarioSesion == null || usuarioSesion.getRol() != PerfilUsuario.recepcionista) {
-            return "redirect:/login/principal?error=acceso-denegado";
+    @PostMapping("/guardar")
+    public String guardarReserva(@ModelAttribute("reserva") Reserva laReserva, 
+                                 @RequestParam(value = "id", required = false) Integer id) {
+        
+        // Si viene un ID válido (mayor que 0), mantenemos el ID para la edición
+        if (id != null && id > 0) {
+            laReserva.setId(id);
+        } else {
+            // Si es 0, menor o null, es una alta nueva; forzamos null para activar el autoincremental de la BD
+            laReserva.setId(null);
         }
-
-        reservaServicio.guardar(reserva);
+        
+        reservaServicio.guardar(laReserva);
         return "redirect:/reservas";
     }
 

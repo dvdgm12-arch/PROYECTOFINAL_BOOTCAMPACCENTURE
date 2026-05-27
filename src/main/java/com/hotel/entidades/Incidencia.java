@@ -111,7 +111,7 @@ public class Incidencia {
      *
      * @param id the new id
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

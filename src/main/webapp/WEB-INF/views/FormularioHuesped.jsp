@@ -20,7 +20,8 @@
                         <h2 class="text-center mb-4">${huesped.id == 0 ? 'Inscribir Nuevo Huésped' : 'Actualizar Huésped'}</h2>
                         
                         <form:form action="${pageContext.request.contextPath}/huespedes/guardar" modelAttribute="huesped" method="POST">
-                            <form:hidden path="id" />
+                            
+                            <input type="hidden" name="id" value="${huesped.id}" />
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">

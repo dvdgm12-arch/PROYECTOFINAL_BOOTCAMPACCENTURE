@@ -10,7 +10,6 @@
     <link rel="shortcut icon" type="image/png" href="<c:url value='/resources/images/favicon.png' />">
     <link rel="icon" type="image/png" href="<c:url value='/resources/images/favicon.png' />">
     
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -24,19 +23,17 @@
                         <form:form action="${pageContext.request.contextPath}/incidencias/guardar" 
                                    modelAttribute="incidencia" method="POST">
                             
-                            <form:hidden path="id" />
+                            <input type="hidden" name="id" value="${incidencia.id}" />
 
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Seleccionar Habitación</label>
-								<form:select path="habitacion.id" class="form-select"
-									required="true">
-									<form:option value="0" label="-- Elegir habitación --" />
-									<c:forEach var="hab" items="${listaHabitaciones}">
-										<form:option value="${hab.id}"
-											label="Hab. ${hab.numero} - ${hab.tipo}" />
-									</c:forEach>
-								</form:select>
-							</div>
+                                <form:select path="habitacion.id" class="form-select" required="true">
+                                    <form:option value="0" label="-- Elegir habitación --" />
+                                    <c:forEach var="hab" items="${listaHabitaciones}">
+                                        <form:option value="${hab.id}" label="Hab. ${hab.numero} - ${hab.tipo}" />
+                                    </c:forEach>
+                                </form:select>
+                            </div>
 
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Descripción</label>

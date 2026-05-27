@@ -42,7 +42,7 @@
                         <form:form action="${pageContext.request.contextPath}/habitaciones/guardar" 
                                    modelAttribute="habitacion" method="POST">
                             
-                            <form:hidden path="id" />
+                            <input type="hidden" name="id" value="${habitacion.id}" />
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -87,7 +87,7 @@
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                                 <a href="<c:url value='/habitaciones' />" class="btn btn-outline-secondary px-4">Cancelar</a>
                                 <button type="submit" class="btn btn-primary px-5">
-                                    <span class="bi bi-check-lg"><span> Guardar Cambios
+                                    <span class="bi bi-check-lg"></span> Guardar Cambios
                                 </button>
                             </div>
 
@@ -97,7 +97,5 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

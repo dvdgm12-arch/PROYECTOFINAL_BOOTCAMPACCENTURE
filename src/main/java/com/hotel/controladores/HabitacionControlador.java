@@ -114,11 +114,21 @@ public class HabitacionControlador {
      * @return the string
      */
     // PROCESAR FORMULARIO
-    @PostMapping(value = "/guardar", params = "!id")
-    public String guardarHabitacion(@ModelAttribute("habitacion") Habitacion laHabitacion) {
-        habitacionServicio.guardar(laHabitacion);
-        return "redirect:/habitaciones";
-    }
+    @PostMapping("/guardar")
+	public String guardarHabitacion(@ModelAttribute("habitacion") Habitacion laHabitacion,
+			@RequestParam("id") Integer id) {
+
+
+		if (id != null && id > 0) {
+			laHabitacion.setId(id);
+		} else {
+
+			laHabitacion.setId(null);
+		}
+
+		habitacionServicio.guardar(laHabitacion);
+		return "redirect:/habitaciones";
+	}
 
     /**
      * Eliminar habitacion.

@@ -119,11 +119,20 @@ public class HuespedControlador {
       * @return the string
       */
      // PROCESAR FORMULARIO
-    @PostMapping(value = "/guardar")
-    public String guardarHuesped(@ModelAttribute("huesped") Huesped elHuesped) {
-        huespedServicio.guardar(elHuesped);
-        return "redirect:/huespedes";
-    }
+    @PostMapping("/guardar")
+	public String guardarHuesped(@ModelAttribute("huesped") Huesped elHuesped, @RequestParam("id") Integer id) {
+
+		
+		if (id != null && id > 0) {
+			elHuesped.setId(id);
+		} else {
+			
+			elHuesped.setId(null);
+		}
+
+		huespedServicio.guardar(elHuesped);
+		return "redirect:/huespedes";
+	}
 
     /**
      * Eliminar huesped.

@@ -20,7 +20,8 @@
             </div>
             <div class="card-body">
                 <form:form action="${pageContext.request.contextPath}/reservas/guardar" method="post" modelAttribute="reserva">
-                    <form:hidden path="id" />
+                    
+                    <input type="hidden" name="id" value="${reserva.id}" />
                     
                     <div class="row mb-3">
                         <div class="col-md-6">

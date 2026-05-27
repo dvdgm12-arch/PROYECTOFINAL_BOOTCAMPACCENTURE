@@ -92,7 +92,7 @@ public class Habitacion {
      *
      * @param id the new id
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
